@@ -1,10 +1,10 @@
-C51 COMPILER V9.00   TEXT3                                                                 06/18/2014 10:57:10 PAGE 1   
+C51 COMPILER V9.00   TEXT3                                                                 06/19/2014 21:06:34 PAGE 1   
 
 
 C51 COMPILER V9.00, COMPILATION OF MODULE TEXT3
 OBJECT MODULE PLACED IN Text3.OBJ
-COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE Text3.c LARGE BROWSE INCDIR(..\delay;..\GUI;..\USER;..\ds18b20;..\tft) DEBU
-                    -G OBJECTEXTEND
+COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE Text3.c LARGE BROWSE INCDIR(..\delay;..\GUI;..\USER;..\ds18b20;..\tft;..\at
+                    -24c04) DEBUG OBJECTEXTEND
 
 line level    source
 
@@ -53,104 +53,112 @@ line level    source
   43   1              TR0=1;/*启动定时器0*/
   44   1              
   45   1      ReadROM();
-  46   1      display00();
-  47   1      while(1);
-  48   1      }
+  46   1      Delay5ms();
+*** WARNING C206 IN LINE 46 OF TEXT3.C: 'Delay5ms': missing function-prototype
+  47   1      AT24C04_WritePage();
+*** WARNING C206 IN LINE 47 OF TEXT3.C: 'AT24C04_WritePage': missing function-prototype
+  48   1      Delay5ms();
+  49   1      AT24C04_ReadPage();
+*** WARNING C206 IN LINE 49 OF TEXT3.C: 'AT24C04_ReadPage': missing function-prototype
+  50   1      Delay5ms();
+  51   1      display00();
+C51 COMPILER V9.00   TEXT3                                                                 06/19/2014 21:06:34 PAGE 2   
+
+  52   1      while(1);
+  53   1      }
 *** WARNING C280 IN LINE 20 OF TEXT3.C: 'x': unreferenced local variable
 *** WARNING C280 IN LINE 20 OF TEXT3.C: 'y': unreferenced local variable
-  49          
-  50          
-  51          /*---中断服务程序---*/
-  52          void Timer0_Routine(void) interrupt 1
-C51 COMPILER V9.00   TEXT3                                                                 06/18/2014 10:57:10 PAGE 2   
-
-  53          {
-  54   1          int tp;/*寄存器定义*/
-  55   1              unsigned int y;
-  56   1              unsigned char a;
-  57   1      //      unsigned int tp,y;/*寄存器定义*/
-  58   1      //      unsigned char x;
-  59   1      
-  60   1      //      unsigned char a;
-  61   1              TH0=0x4c;/*T0重新置初值(25mS)*/
-  62   1              TL0=0;
-  63   1              a++;
-  64   1              if (a==40)/*已经发生40次中断了吗？*/
-  65   1              {
-  66   2                      a=0;/*是，1S时间到*/
-  67   2                      
-  68   2                      GUI_sprintf_chartodec(189,302,t,0xf800,0);/* 无符号字符型数以十进制形式显示*/
-  69   2                      tp=read_temp();/*调用温度转换函数*/
-  70   2                      if(tp>0x3fff) /*判断是否为负温，若是负温，前面显示负号*/
-  71   2                      {      
-  72   3                              GUI_sprintf_char(60,302, '-', 0xf800,0);/*是负温，前面显示负号*/
-  73   3                              GUI_wrlval(107,302, tp&0x3fff,4,2,0xf800,0);/*写入要显示的长变量*/
-  74   3                              tp=1000-tp&0x3fff;/*得到从负10度为起点的相对温度值*/
-  75   3                      }
-  76   2                      else
-  77   2                      {      
-  78   3                              GUI_sprintf_char(60,302, '+', 0xf800,0);/*是正温，前面显示正号*/
-  79   3                              GUI_wrlval(107,302, tp&0x3fff,4,2,0xf800,0);/*写入要显示的长变量*/
-  80   3                              tp=1000+tp&0x3fff;/*得到从负10度为起点的相对温度值*/
-  81   3                      }
-  82   2                      y=275-tp/20;/*计算打点位置*/
-  83   2      
-  84   2      
-  85   2      
-  86   2      //              x=28+t;
-  87   2      //              GUI_Point(x, y, 0xffff);
+  54          
+  55          
+  56          /*---中断服务程序---*/
+  57          void Timer0_Routine(void) interrupt 1
+  58          {
+  59   1          int tp;/*寄存器定义*/
+  60   1              unsigned int y;
+  61   1              unsigned char a;
+  62   1      //      unsigned int tp,y;/*寄存器定义*/
+  63   1      //      unsigned char x;
+  64   1      
+  65   1      //      unsigned char a;
+  66   1              TH0=0x4c;/*T0重新置初值(25mS)*/
+  67   1              TL0=0;
+  68   1              a++;
+  69   1              if (a==40)/*已经发生40次中断了吗？*/
+  70   1              {
+  71   2                      a=0;/*是，1S时间到*/
+  72   2                      
+  73   2                      GUI_sprintf_chartodec(189,302,t,0xf800,0);/* 无符号字符型数以十进制形式显示*/
+  74   2                      tp=read_temp();/*调用温度转换函数*/
+  75   2                      if(tp>0x3fff) /*判断是否为负温，若是负温，前面显示负号*/
+  76   2                      {      
+  77   3                              GUI_sprintf_char(60,302, '-', 0xf800,0);/*是负温，前面显示负号*/
+  78   3                              GUI_wrlval(107,302, tp&0x3fff,4,2,0xf800,0);/*写入要显示的长变量*/
+  79   3                              tp=1000-tp&0x3fff;/*得到从负10度为起点的相对温度值*/
+  80   3                      }
+  81   2                      else
+  82   2                      {      
+  83   3                              GUI_sprintf_char(60,302, '+', 0xf800,0);/*是正温，前面显示正号*/
+  84   3                              GUI_wrlval(107,302, tp&0x3fff,4,2,0xf800,0);/*写入要显示的长变量*/
+  85   3                              tp=1000+tp&0x3fff;/*得到从负10度为起点的相对温度值*/
+  86   3                      }
+  87   2                      y=275-tp/20;/*计算打点位置*/
   88   2      
   89   2      
   90   2      
-  91   2      
-  92   2                      /*第一次测量是不准确的，不予显示*/
-  93   2                      if (tp<5000)
-  94   2                      {
-  95   3                              GUI_Point(t+28, y, 0xffff);//画点
-  96   3                              t=t+1;
-  97   3                              while(t==201);/*测量结束*/
-  98   3                      }
-  99   2                       
- 100   2              }
- 101   1      }
- 102          
- 103          
- 104          
- 105          
- 106          
+  91   2      //              x=28+t;
+  92   2      //              GUI_Point(x, y, 0xffff);
+  93   2      
+  94   2      
+  95   2      
+  96   2      
+  97   2                      /*第一次测量是不准确的，不予显示*/
+  98   2                      if (tp<5000)
+  99   2                      {
+ 100   3                              GUI_Point(t+28, y, 0xffff);//画点
+ 101   3                              t=t+1;
+ 102   3                              while(t==201);/*测量结束*/
+ 103   3                      }
+ 104   2                       
+ 105   2              }
+ 106   1      }
  107          
  108          
  109          
  110          
  111          
- 112          
- 113          /*
- 114          GUI_sprintf_hzstr16s(20,50,"温度采集程序",Black,Cyan);
-C51 COMPILER V9.00   TEXT3                                                                 06/18/2014 10:57:10 PAGE 3   
+C51 COMPILER V9.00   TEXT3                                                                 06/19/2014 21:06:34 PAGE 3   
 
- 115          GUI_sprintf_hzstr16s(20,66,"当前温度值",Black,White);
- 116          GUI_sprintf_hzstr16s(101,66,":  . c",Black,White);
- 117           while(1)
- 118           {
- 119           delayms(800);
- 120            temperature=read_temp();                                //读取当前温度值 到temperature
- 121          
- 122                   GUI_sprintf_char(109,66,asc[temperature%1000/100],Red,White);     //显示当前温度值
- 123                   GUI_sprintf_char(117,66,asc[temperature%100/10],Red,White);
- 124                   GUI_sprintf_char(133,66,asc[temperature%10],Red,White);
- 125           
- 126           }
- 127                  
- 128                  
- 129          }         
- 130          */
- 131          
- 132          
- 133          
+ 112          
+ 113          
+ 114          
+ 115          
+ 116          
+ 117          
+ 118          /*
+ 119          GUI_sprintf_hzstr16s(20,50,"温度采集程序",Black,Cyan);
+ 120          GUI_sprintf_hzstr16s(20,66,"当前温度值",Black,White);
+ 121          GUI_sprintf_hzstr16s(101,66,":  . c",Black,White);
+ 122           while(1)
+ 123           {
+ 124           delayms(800);
+ 125            temperature=read_temp();                                //读取当前温度值 到temperature
+ 126          
+ 127                   GUI_sprintf_char(109,66,asc[temperature%1000/100],Red,White);     //显示当前温度值
+ 128                   GUI_sprintf_char(117,66,asc[temperature%100/10],Red,White);
+ 129                   GUI_sprintf_char(133,66,asc[temperature%10],Red,White);
+ 130           
+ 131           }
+ 132                  
+ 133                  
+ 134          }         
+ 135          */
+ 136          
+ 137          
+ 138          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    487    ----
+   CODE SIZE        =    502    ----
    CONSTANT SIZE    =     25    ----
    XDATA SIZE       =     22       7
    PDATA SIZE       =   ----    ----
@@ -160,4 +168,4 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
 END OF MODULE INFORMATION.
 
 
-C51 COMPILATION COMPLETE.  2 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  5 WARNING(S),  0 ERROR(S)

@@ -294,7 +294,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\delay;..\GUI;..\USER;..\ds18b20;..\tft</IncludePath>
+              <IncludePath>..\delay;..\GUI;..\USER;..\ds18b20;..\tft;..\at24c04</IncludePath>
             </VariousControls>
           </C51>
           <Ax51>
@@ -400,6 +400,16 @@
               <FileName>ds18b20.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\ds18b20\ds18b20.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>AT24C04</GroupName>
+          <Files>
+            <File>
+              <FileName>at24c04.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\at24c04\at24c04.c</FilePath>
             </File>
           </Files>
         </Group>

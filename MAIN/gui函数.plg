@@ -3,8 +3,8 @@
 <pre>
 <h1>礦ision Build Log</h1>
 <h2>Project:</h2>
-C:\Users\ZhaoLi\Desktop\实验9 DS18B20温度采集\MAIN\gui函数.uvproj
-Project File Date:  08/30/2013
+E:\项目\DS18B20\MAIN\gui函数.uvproj
+Project File Date:  06/18/2014
 
 <h2>Output:</h2>
 Build target 'Target 1'
@@ -13,9 +13,942 @@ compiling delay.c...
 compiling tft.C...
 compiling GUI.C...
 compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): error C141: syntax error near 'AT24C04_ReadPage'
+compiling ds18b20.c...
+..\ds18b20\ds18b20.c(9): warning C318: can't open file 'at24c04.h'
+..\DS18B20\DS18B20.C(269): error C202: 'BUF': undefined identifier
+..\DS18B20\DS18B20.C(270): error C202: 'BUF': undefined identifier
+compiling at24c04.c...
+..\DS18B20\DS18B20.H(7): error C129: missing ';' before 'read_temp'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
 TEXT3.C(20): warning C280: 'x': unreferenced local variable
 TEXT3.C(20): warning C280: 'y': unreferenced local variable
 compiling ds18b20.c...
+..\ds18b20\ds18b20.c(9): warning C318: can't open file 'at24c04.h'
+..\DS18B20\DS18B20.C(269): error C202: 'BUF': undefined identifier
+..\DS18B20\DS18B20.C(270): error C202: 'BUF': undefined identifier
+compiling at24c04.c...
+..\DS18B20\DS18B20.H(7): error C129: missing ';' before 'read_temp'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\ds18b20\ds18b20.c(9): warning C318: can't open file 'at24c04.h'
+..\DS18B20\DS18B20.C(269): error C202: 'BUF': undefined identifier
+..\DS18B20\DS18B20.C(270): error C202: 'BUF': undefined identifier
+compiling at24c04.c...
+..\DS18B20\DS18B20.H(7): error C129: missing ';' before 'read_temp'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\ds18b20\ds18b20.c(9): warning C318: can't open file 'at24c04.h'
+..\DS18B20\DS18B20.C(269): error C202: 'BUF': undefined identifier
+..\DS18B20\DS18B20.C(270): error C202: 'BUF': undefined identifier
+compiling at24c04.c...
+..\DS18B20\DS18B20.H(7): error C129: missing ';' before 'read_temp'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\ds18b20\ds18b20.c(9): warning C318: can't open file 'at24c04.h'
+..\DS18B20\DS18B20.C(269): error C202: 'BUF': undefined identifier
+..\DS18B20\DS18B20.C(270): error C202: 'BUF': undefined identifier
+compiling at24c04.c...
+..\DS18B20\DS18B20.H(7): error C129: missing ';' before 'read_temp'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\ds18b20\ds18b20.c(9): warning C318: can't open file 'at24c04.h'
+..\DS18B20\DS18B20.C(269): error C202: 'BUF': undefined identifier
+..\DS18B20\DS18B20.C(270): error C202: 'BUF': undefined identifier
+compiling at24c04.c...
+..\DS18B20\DS18B20.H(7): error C129: missing ';' before 'read_temp'
+..\AT24C04\AT24C04.H(1): warning C323: newline expected, extra characters found
+..\at24c04\at24c04.c(216): warning C316: unterminated conditionals
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\ds18b20\ds18b20.c(9): warning C318: can't open file 'at24c04.h'
+..\DS18B20\DS18B20.C(269): error C202: 'BUF': undefined identifier
+..\DS18B20\DS18B20.C(270): error C202: 'BUF': undefined identifier
+compiling at24c04.c...
+..\DS18B20\DS18B20.H(7): error C129: missing ';' before 'read_temp'
+..\AT24C04\AT24C04.H(1): warning C323: newline expected, extra characters found
+..\at24c04\at24c04.c(216): warning C316: unterminated conditionals
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\ds18b20\ds18b20.c(9): warning C318: can't open file 'at24c04.h'
+..\DS18B20\DS18B20.C(269): error C202: 'BUF': undefined identifier
+..\DS18B20\DS18B20.C(270): error C202: 'BUF': undefined identifier
+compiling at24c04.c...
+..\DS18B20\DS18B20.H(7): error C129: missing ';' before 'read_temp'
+..\AT24C04\AT24C04.H(1): warning C323: newline expected, extra characters found
+..\at24c04\at24c04.c(216): warning C316: unterminated conditionals
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\ds18b20\ds18b20.c(9): warning C318: can't open file 'at24c04.h'
+..\DS18B20\DS18B20.C(269): error C202: 'BUF': undefined identifier
+..\DS18B20\DS18B20.C(270): error C202: 'BUF': undefined identifier
+compiling at24c04.c...
+..\DS18B20\DS18B20.H(7): error C129: missing ';' before 'read_temp'
+..\AT24C04\AT24C04.H(1): warning C323: newline expected, extra characters found
+..\at24c04\at24c04.c(216): warning C316: unterminated conditionals
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\ds18b20\ds18b20.c(9): warning C318: can't open file 'at24c04.h'
+..\DS18B20\DS18B20.C(269): error C202: 'BUF': undefined identifier
+..\DS18B20\DS18B20.C(270): error C202: 'BUF': undefined identifier
+compiling at24c04.c...
+..\DS18B20\DS18B20.H(7): error C129: missing ';' before 'read_temp'
+..\AT24C04\AT24C04.H(1): warning C323: newline expected, extra characters found
+..\at24c04\at24c04.c(216): warning C316: unterminated conditionals
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\AT24C04\AT24C04.H(1): warning C323: newline expected, extra characters found
+..\AT24C04\AT24C04.H(12): error C141: syntax error near 'dat', expected ')'
+..\AT24C04\AT24C04.H(13): error C129: missing ';' before 'AT24C04_RecvByte'
+..\ds18b20\ds18b20.c(370): warning C316: unterminated conditionals
+compiling at24c04.c...
+..\DS18B20\DS18B20.H(7): error C129: missing ';' before 'read_temp'
+..\AT24C04\AT24C04.H(1): warning C323: newline expected, extra characters found
+..\at24c04\at24c04.c(216): warning C316: unterminated conditionals
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\AT24C04\AT24C04.H(1): warning C323: newline expected, extra characters found
+..\AT24C04\AT24C04.H(12): error C141: syntax error near 'dat', expected ')'
+..\AT24C04\AT24C04.H(13): error C129: missing ';' before 'AT24C04_RecvByte'
+..\ds18b20\ds18b20.c(370): warning C316: unterminated conditionals
+compiling at24c04.c...
+..\DS18B20\DS18B20.H(7): error C129: missing ';' before 'read_temp'
+..\AT24C04\AT24C04.H(1): warning C323: newline expected, extra characters found
+..\at24c04\at24c04.c(216): warning C316: unterminated conditionals
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\AT24C04\AT24C04.H(1): warning C323: newline expected, extra characters found
+..\AT24C04\AT24C04.H(12): error C141: syntax error near 'dat', expected ')'
+..\AT24C04\AT24C04.H(13): error C129: missing ';' before 'AT24C04_RecvByte'
+..\ds18b20\ds18b20.c(370): warning C316: unterminated conditionals
+compiling at24c04.c...
+..\DS18B20\DS18B20.H(7): error C129: missing ';' before 'read_temp'
+..\AT24C04\AT24C04.H(1): warning C323: newline expected, extra characters found
+..\at24c04\at24c04.c(216): warning C316: unterminated conditionals
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\AT24C04\AT24C04.H(1): warning C323: newline expected, extra characters found
+..\AT24C04\AT24C04.H(12): error C141: syntax error near 'dat', expected ')'
+..\AT24C04\AT24C04.H(13): error C129: missing ';' before 'AT24C04_RecvByte'
+..\ds18b20\ds18b20.c(370): warning C316: unterminated conditionals
+compiling at24c04.c...
+..\DS18B20\DS18B20.H(7): error C129: missing ';' before 'read_temp'
+..\AT24C04\AT24C04.H(1): warning C323: newline expected, extra characters found
+..\at24c04\at24c04.c(216): warning C316: unterminated conditionals
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\DS18B20\DS18B20.C(269): error C202: 'BUF': undefined identifier
+..\DS18B20\DS18B20.C(270): error C202: 'BUF': undefined identifier
+compiling at24c04.c...
+..\DS18B20\DS18B20.H(7): error C129: missing ';' before 'read_temp'
+..\AT24C04\AT24C04.H(1): warning C323: newline expected, extra characters found
+..\at24c04\at24c04.c(218): warning C316: unterminated conditionals
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\DS18B20\DS18B20.C(269): error C202: 'BUF': undefined identifier
+..\DS18B20\DS18B20.C(270): error C202: 'BUF': undefined identifier
+compiling at24c04.c...
+..\DS18B20\DS18B20.H(7): error C129: missing ';' before 'read_temp'
+..\AT24C04\AT24C04.H(1): warning C323: newline expected, extra characters found
+..\at24c04\at24c04.c(218): warning C316: unterminated conditionals
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\DS18B20\DS18B20.C(269): error C202: 'BUF': undefined identifier
+..\DS18B20\DS18B20.C(270): error C202: 'BUF': undefined identifier
+compiling at24c04.c...
+..\DS18B20\DS18B20.H(7): error C129: missing ';' before 'read_temp'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+D:\KEIL\C51\INC\STC12.H(7): error C231: 'ACC': redefinition
+D:\KEIL\C51\INC\STC12.H(8): error C231: 'B': redefinition
+D:\KEIL\C51\INC\STC12.H(9): error C231: 'PSW': redefinition
+D:\KEIL\C51\INC\STC12.H(11): error C231: 'CY': redefinition
+D:\KEIL\C51\INC\STC12.H(12): error C231: 'AC': redefinition
+D:\KEIL\C51\INC\STC12.H(13): error C231: 'F0': redefinition
+D:\KEIL\C51\INC\STC12.H(14): error C231: 'RS1': redefinition
+D:\KEIL\C51\INC\STC12.H(15): error C231: 'RS0': redefinition
+D:\KEIL\C51\INC\STC12.H(16): error C231: 'OV': redefinition
+D:\KEIL\C51\INC\STC12.H(17): error C231: 'P': redefinition
+D:\KEIL\C51\INC\STC12.H(19): error C231: 'SP': redefinition
+D:\KEIL\C51\INC\STC12.H(20): error C231: 'DPL': redefinition
+D:\KEIL\C51\INC\STC12.H(21): error C231: 'DPH': redefinition
+D:\KEIL\C51\INC\STC12.H(25): error C231: 'PCON': redefinition
+D:\KEIL\C51\INC\STC12.H(27): error C231: 'AUXR': redefinition
+D:\KEIL\C51\INC\STC12.H(29): error C231: 'AUXR1': redefinition
+D:\KEIL\C51\INC\STC12.H(56): error C231: 'WAKE_CLKO': redefinition
+D:\KEIL\C51\INC\STC12.H(71): error C231: 'CLK_DIV': redefinition
+D:\KEIL\C51\INC\STC12.H(73): error C231: 'BUS_SPEED': redefinition
+D:\KEIL\C51\INC\STC12.H(96): error C231: 'IE': redefinition
+D:\KEIL\C51\INC\STC12.H(98): error C231: 'EA': redefinition
+D:\KEIL\C51\INC\STC12.H(99): error C231: 'ELVD': redefinition
+D:\KEIL\C51\INC\STC12.H(100): error C231: 'EADC': redefinition
+D:\KEIL\C51\INC\STC12.H(101): error C231: 'ES': redefinition
+D:\KEIL\C51\INC\STC12.H(102): error C231: 'ET1': redefinition
+D:\KEIL\C51\INC\STC12.H(103): error C231: 'EX1': redefinition
+D:\KEIL\C51\INC\STC12.H(104): error C231: 'ET0': redefinition
+D:\KEIL\C51\INC\STC12.H(105): error C231: 'EX0': redefinition
+D:\KEIL\C51\INC\STC12.H(107): error C231: 'IE2': redefinition
+D:\KEIL\C51\INC\STC12.H(110): error C231: 'IP': redefinition
+D:\KEIL\C51\INC\STC12.H(112): error C231: 'PPCA': redefinition
+D:\KEIL\C51\INC\STC12.H(113): error C231: 'PLVD': redefinition
+D:\KEIL\C51\INC\STC12.H(114): error C231: 'PADC': redefinition
+D:\KEIL\C51\INC\STC12.H(115): error C231: 'PS': redefinition
+D:\KEIL\C51\INC\STC12.H(116): error C231: 'PT1': redefinition
+D:\KEIL\C51\INC\STC12.H(117): error C231: 'PX1': redefinition
+D:\KEIL\C51\INC\STC12.H(118): error C231: 'PT0': redefinition
+D:\KEIL\C51\INC\STC12.H(119): error C231: 'PX0': redefinition
+D:\KEIL\C51\INC\STC12.H(122): error C231: 'IPH': redefinition
+D:\KEIL\C51\INC\STC12.H(123): error C231: 'IP2': redefinition
+D:\KEIL\C51\INC\STC12.H(124): error C231: 'IPH2': redefinition
+D:\KEIL\C51\INC\STC12.H(128): error C231: 'P0': redefinition
+D:\KEIL\C51\INC\STC12.H(129): error C231: 'P0M0': redefinition
+D:\KEIL\C51\INC\STC12.H(130): error C231: 'P0M1': redefinition
+D:\KEIL\C51\INC\STC12.H(131): error C231: 'P1': redefinition
+D:\KEIL\C51\INC\STC12.H(132): error C231: 'P1M0': redefinition
+D:\KEIL\C51\INC\STC12.H(133): error C231: 'P1M1': redefinition
+D:\KEIL\C51\INC\STC12.H(135): error C231: 'P2': redefinition
+D:\KEIL\C51\INC\STC12.H(136): error C231: 'P2M0': redefinition
+D:\KEIL\C51\INC\STC12.H(137): error C231: 'P2M1': redefinition
+D:\KEIL\C51\INC\STC12.H(138): error C231: 'P3': redefinition
+D:\KEIL\C51\INC\STC12.H(139): error C231: 'P3M0': redefinition
+D:\KEIL\C51\INC\STC12.H(140): error C231: 'P3M1': redefinition
+D:\KEIL\C51\INC\STC12.H(141): error C231: 'P4': redefinition
+D:\KEIL\C51\INC\STC12.H(142): error C231: 'P4M0': redefinition
+D:\KEIL\C51\INC\STC12.H(143): error C231: 'P4M1': redefinition
+D:\KEIL\C51\INC\STC12.H(145): error C231: 'P4SW': redefinition
+D:\KEIL\C51\INC\STC12.H(147): error C231: 'P5': redefinition
+D:\KEIL\C51\INC\STC12.H(148): error C231: 'P5M0': redefinition
+D:\KEIL\C51\INC\STC12.H(149): error C231: 'P5M1': redefinition
+D:\KEIL\C51\INC\STC12.H(153): error C231: 'TCON': redefinition
+D:\KEIL\C51\INC\STC12.H(155): error C231: 'TF1': redefinition
+D:\KEIL\C51\INC\STC12.H(156): error C231: 'TR1': redefinition
+D:\KEIL\C51\INC\STC12.H(157): error C231: 'TF0': redefinition
+D:\KEIL\C51\INC\STC12.H(158): error C231: 'TR0': redefinition
+D:\KEIL\C51\INC\STC12.H(159): error C231: 'IE1': redefinition
+D:\KEIL\C51\INC\STC12.H(160): error C231: 'IT1': redefinition
+D:\KEIL\C51\INC\STC12.H(161): error C231: 'IE0': redefinition
+D:\KEIL\C51\INC\STC12.H(162): error C231: 'IT0': redefinition
+D:\KEIL\C51\INC\STC12.H(164): error C231: 'TMOD': redefinition
+D:\KEIL\C51\INC\STC12.H(165): error C231: 'TL0': redefinition
+D:\KEIL\C51\INC\STC12.H(166): error C231: 'TH0': redefinition
+D:\KEIL\C51\INC\STC12.H(167): error C231: 'TL1': redefinition
+D:\KEIL\C51\INC\STC12.H(168): error C231: 'TH1': redefinition
+D:\KEIL\C51\INC\STC12.H(172): error C231: 'SCON': redefinition
+D:\KEIL\C51\INC\STC12.H(174): error C231: 'SM0': redefinition
+D:\KEIL\C51\INC\STC12.H(175): error C231: 'SM1': redefinition
+D:\KEIL\C51\INC\STC12.H(176): error C231: 'SM2': redefinition
+D:\KEIL\C51\INC\STC12.H(177): error C231: 'REN': redefinition
+D:\KEIL\C51\INC\STC12.H(178): error C231: 'TB8': redefinition
+D:\KEIL\C51\INC\STC12.H(179): error C231: 'RB8': redefinition
+D:\KEIL\C51\INC\STC12.H(180): error C231: 'TI': redefinition
+D:\KEIL\C51\INC\STC12.H(181): error C231: 'RI': redefinition
+D:\KEIL\C51\INC\STC12.H(183): error C231: 'SBUF': redefinition
+D:\KEIL\C51\INC\STC12.H(184): error C231: 'SADEN': redefinition
+D:\KEIL\C51\INC\STC12.H(185): error C231: 'SADDR': redefinition
+D:\KEIL\C51\INC\STC12.H(188): error C231: 'S2CON': redefinition
+D:\KEIL\C51\INC\STC12.H(189): error C231: 'S2BUF': redefinition
+D:\KEIL\C51\INC\STC12.H(190): error C231: 'BRT': redefinition
+D:\KEIL\C51\INC\STC12.H(193): error C231: 'WDT_CONTR': redefinition
+D:\KEIL\C51\INC\STC12.H(201): error C231: 'CCON': redefinition
+D:\KEIL\C51\INC\STC12.H(203): error C231: 'CF': redefinition
+D:\KEIL\C51\INC\STC12.H(204): error C231: 'CR': redefinition
+D:\KEIL\C51\INC\STC12.H(207): error C231: 'CCF1': redefinition
+D:\KEIL\C51\INC\STC12.H(208): error C231: 'CCF0': redefinition
+D:\KEIL\C51\INC\STC12.H(210): error C231: 'CMOD': redefinition
+D:\KEIL\C51\INC\STC12.H(230): error C231: 'CL': redefinition
+D:\KEIL\C51\INC\STC12.H(231): error C231: 'CH': redefinition
+D:\KEIL\C51\INC\STC12.H(234): error C231: 'CCAPM0': redefinition
+D:\KEIL\C51\INC\STC12.H(235): error C231: 'CCAPM1': redefinition
+D:\KEIL\C51\INC\STC12.H(262): error C231: 'CCAP0L': redefinition
+D:\KEIL\C51\INC\STC12.H(263): error C231: 'CCAP0H': redefinition
+D:\KEIL\C51\INC\STC12.H(264): error C231: 'CCAP1L': redefinition
+D:\KEIL\C51\INC\STC12.H(265): error C231: 'CCAP1H': redefinition
+D:\KEIL\C51\INC\STC12.H(268): error C231: 'PCA_PWM0': redefinition
+D:\KEIL\C51\INC\STC12.H(269): error C231: 'PCA_PWM1': redefinition
+D:\KEIL\C51\INC\STC12.H(278): error C231: 'ADC_CONTR': redefinition
+D:\KEIL\C51\INC\STC12.H(280): error C231: 'ADC_RES': redefinition
+D:\KEIL\C51\INC\STC12.H(281): error C231: 'ADC_RESL': redefinition
+D:\KEIL\C51\INC\STC12.H(282): error C231: 'P1ASF': redefinition
+D:\KEIL\C51\INC\STC12.H(286): error C231: 'SPCTL': redefinition
+D:\KEIL\C51\INC\STC12.H(287): error C231: 'SPSTAT': redefinition
+D:\KEIL\C51\INC\STC12.H(288): error C231: 'SPDAT': redefinition
+D:\KEIL\C51\INC\STC12.H(291): error C231: 'IAP_DATA': redefinition
+D:\KEIL\C51\INC\STC12.H(292): error C231: 'IAP_ADDRH': redefinition
+D:\KEIL\C51\INC\STC12.H(293): error C231: 'IAP_ADDRL': redefinition
+D:\KEIL\C51\INC\STC12.H(295): error C231: 'IAP_CMD': redefinition
+D:\KEIL\C51\INC\STC12.H(296): error C231: 'IAP_TRIG': redefinition
+D:\KEIL\C51\INC\STC12.H(297): error C231: 'IAP_CONTR': redefinition
+..\AT24C04\AT24C04.C(43): error C141: syntax error near '/'
+..\AT24C04\AT24C04.C(58): error C202: 'table': undefined identifier
+compiling at24c04.c...
+..\DS18B20\DS18B20.H(7): error C129: missing ';' before 'read_temp'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\AT24C04\AT24C04.C(43): error C141: syntax error near '/'
+..\AT24C04\AT24C04.C(58): error C202: 'table': undefined identifier
+compiling at24c04.c...
+..\DS18B20\DS18B20.H(7): error C129: missing ';' before 'read_temp'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\AT24C04\AT24C04.C(58): error C202: 'table': undefined identifier
+compiling at24c04.c...
+..\DS18B20\DS18B20.H(7): error C129: missing ';' before 'read_temp'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+C51 FATAL-ERROR -
+  ACTION:  PARSING SOURCE-FILE
+  ERROR:    PREPROCESSOR: MACROS TOO NESTED
+C51 TERMINATED.
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+C51 FATAL-ERROR -
+  ACTION:  PARSING SOURCE-FILE
+  ERROR:    PREPROCESSOR: MACROS TOO NESTED
+C51 TERMINATED.
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+C51 FATAL-ERROR -
+  ACTION:  PARSING SOURCE-FILE
+  ERROR:    PREPROCESSOR: MACROS TOO NESTED
+C51 TERMINATED.
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+C51 FATAL-ERROR -
+  ACTION:  PARSING SOURCE-FILE
+  ERROR:    PREPROCESSOR: MACROS TOO NESTED
+C51 TERMINATED.
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+D:\KEIL\C51\INC\STC12.H(7): error C231: 'ACC': redefinition
+D:\KEIL\C51\INC\STC12.H(8): error C231: 'B': redefinition
+D:\KEIL\C51\INC\STC12.H(9): error C231: 'PSW': redefinition
+D:\KEIL\C51\INC\STC12.H(11): error C231: 'CY': redefinition
+D:\KEIL\C51\INC\STC12.H(12): error C231: 'AC': redefinition
+D:\KEIL\C51\INC\STC12.H(13): error C231: 'F0': redefinition
+D:\KEIL\C51\INC\STC12.H(14): error C231: 'RS1': redefinition
+D:\KEIL\C51\INC\STC12.H(15): error C231: 'RS0': redefinition
+D:\KEIL\C51\INC\STC12.H(16): error C231: 'OV': redefinition
+D:\KEIL\C51\INC\STC12.H(17): error C231: 'P': redefinition
+D:\KEIL\C51\INC\STC12.H(19): error C231: 'SP': redefinition
+D:\KEIL\C51\INC\STC12.H(20): error C231: 'DPL': redefinition
+D:\KEIL\C51\INC\STC12.H(21): error C231: 'DPH': redefinition
+D:\KEIL\C51\INC\STC12.H(25): error C231: 'PCON': redefinition
+D:\KEIL\C51\INC\STC12.H(27): error C231: 'AUXR': redefinition
+D:\KEIL\C51\INC\STC12.H(29): error C231: 'AUXR1': redefinition
+D:\KEIL\C51\INC\STC12.H(56): error C231: 'WAKE_CLKO': redefinition
+D:\KEIL\C51\INC\STC12.H(71): error C231: 'CLK_DIV': redefinition
+D:\KEIL\C51\INC\STC12.H(73): error C231: 'BUS_SPEED': redefinition
+D:\KEIL\C51\INC\STC12.H(96): error C231: 'IE': redefinition
+D:\KEIL\C51\INC\STC12.H(98): error C231: 'EA': redefinition
+D:\KEIL\C51\INC\STC12.H(99): error C231: 'ELVD': redefinition
+D:\KEIL\C51\INC\STC12.H(100): error C231: 'EADC': redefinition
+D:\KEIL\C51\INC\STC12.H(101): error C231: 'ES': redefinition
+D:\KEIL\C51\INC\STC12.H(102): error C231: 'ET1': redefinition
+D:\KEIL\C51\INC\STC12.H(103): error C231: 'EX1': redefinition
+D:\KEIL\C51\INC\STC12.H(104): error C231: 'ET0': redefinition
+D:\KEIL\C51\INC\STC12.H(105): error C231: 'EX0': redefinition
+D:\KEIL\C51\INC\STC12.H(107): error C231: 'IE2': redefinition
+D:\KEIL\C51\INC\STC12.H(110): error C231: 'IP': redefinition
+D:\KEIL\C51\INC\STC12.H(112): error C231: 'PPCA': redefinition
+D:\KEIL\C51\INC\STC12.H(113): error C231: 'PLVD': redefinition
+D:\KEIL\C51\INC\STC12.H(114): error C231: 'PADC': redefinition
+D:\KEIL\C51\INC\STC12.H(115): error C231: 'PS': redefinition
+D:\KEIL\C51\INC\STC12.H(116): error C231: 'PT1': redefinition
+D:\KEIL\C51\INC\STC12.H(117): error C231: 'PX1': redefinition
+D:\KEIL\C51\INC\STC12.H(118): error C231: 'PT0': redefinition
+D:\KEIL\C51\INC\STC12.H(119): error C231: 'PX0': redefinition
+D:\KEIL\C51\INC\STC12.H(122): error C231: 'IPH': redefinition
+D:\KEIL\C51\INC\STC12.H(123): error C231: 'IP2': redefinition
+D:\KEIL\C51\INC\STC12.H(124): error C231: 'IPH2': redefinition
+D:\KEIL\C51\INC\STC12.H(128): error C231: 'P0': redefinition
+D:\KEIL\C51\INC\STC12.H(129): error C231: 'P0M0': redefinition
+D:\KEIL\C51\INC\STC12.H(130): error C231: 'P0M1': redefinition
+D:\KEIL\C51\INC\STC12.H(131): error C231: 'P1': redefinition
+D:\KEIL\C51\INC\STC12.H(132): error C231: 'P1M0': redefinition
+D:\KEIL\C51\INC\STC12.H(133): error C231: 'P1M1': redefinition
+D:\KEIL\C51\INC\STC12.H(135): error C231: 'P2': redefinition
+D:\KEIL\C51\INC\STC12.H(136): error C231: 'P2M0': redefinition
+D:\KEIL\C51\INC\STC12.H(137): error C231: 'P2M1': redefinition
+D:\KEIL\C51\INC\STC12.H(138): error C231: 'P3': redefinition
+D:\KEIL\C51\INC\STC12.H(139): error C231: 'P3M0': redefinition
+D:\KEIL\C51\INC\STC12.H(140): error C231: 'P3M1': redefinition
+D:\KEIL\C51\INC\STC12.H(141): error C231: 'P4': redefinition
+D:\KEIL\C51\INC\STC12.H(142): error C231: 'P4M0': redefinition
+D:\KEIL\C51\INC\STC12.H(143): error C231: 'P4M1': redefinition
+D:\KEIL\C51\INC\STC12.H(145): error C231: 'P4SW': redefinition
+D:\KEIL\C51\INC\STC12.H(147): error C231: 'P5': redefinition
+D:\KEIL\C51\INC\STC12.H(148): error C231: 'P5M0': redefinition
+D:\KEIL\C51\INC\STC12.H(149): error C231: 'P5M1': redefinition
+D:\KEIL\C51\INC\STC12.H(153): error C231: 'TCON': redefinition
+D:\KEIL\C51\INC\STC12.H(155): error C231: 'TF1': redefinition
+D:\KEIL\C51\INC\STC12.H(156): error C231: 'TR1': redefinition
+D:\KEIL\C51\INC\STC12.H(157): error C231: 'TF0': redefinition
+D:\KEIL\C51\INC\STC12.H(158): error C231: 'TR0': redefinition
+D:\KEIL\C51\INC\STC12.H(159): error C231: 'IE1': redefinition
+D:\KEIL\C51\INC\STC12.H(160): error C231: 'IT1': redefinition
+D:\KEIL\C51\INC\STC12.H(161): error C231: 'IE0': redefinition
+D:\KEIL\C51\INC\STC12.H(162): error C231: 'IT0': redefinition
+D:\KEIL\C51\INC\STC12.H(164): error C231: 'TMOD': redefinition
+D:\KEIL\C51\INC\STC12.H(165): error C231: 'TL0': redefinition
+D:\KEIL\C51\INC\STC12.H(166): error C231: 'TH0': redefinition
+D:\KEIL\C51\INC\STC12.H(167): error C231: 'TL1': redefinition
+D:\KEIL\C51\INC\STC12.H(168): error C231: 'TH1': redefinition
+D:\KEIL\C51\INC\STC12.H(172): error C231: 'SCON': redefinition
+D:\KEIL\C51\INC\STC12.H(174): error C231: 'SM0': redefinition
+D:\KEIL\C51\INC\STC12.H(175): error C231: 'SM1': redefinition
+D:\KEIL\C51\INC\STC12.H(176): error C231: 'SM2': redefinition
+D:\KEIL\C51\INC\STC12.H(177): error C231: 'REN': redefinition
+D:\KEIL\C51\INC\STC12.H(178): error C231: 'TB8': redefinition
+D:\KEIL\C51\INC\STC12.H(179): error C231: 'RB8': redefinition
+D:\KEIL\C51\INC\STC12.H(180): error C231: 'TI': redefinition
+D:\KEIL\C51\INC\STC12.H(181): error C231: 'RI': redefinition
+D:\KEIL\C51\INC\STC12.H(183): error C231: 'SBUF': redefinition
+D:\KEIL\C51\INC\STC12.H(184): error C231: 'SADEN': redefinition
+D:\KEIL\C51\INC\STC12.H(185): error C231: 'SADDR': redefinition
+D:\KEIL\C51\INC\STC12.H(188): error C231: 'S2CON': redefinition
+D:\KEIL\C51\INC\STC12.H(189): error C231: 'S2BUF': redefinition
+D:\KEIL\C51\INC\STC12.H(190): error C231: 'BRT': redefinition
+D:\KEIL\C51\INC\STC12.H(193): error C231: 'WDT_CONTR': redefinition
+D:\KEIL\C51\INC\STC12.H(201): error C231: 'CCON': redefinition
+D:\KEIL\C51\INC\STC12.H(203): error C231: 'CF': redefinition
+D:\KEIL\C51\INC\STC12.H(204): error C231: 'CR': redefinition
+D:\KEIL\C51\INC\STC12.H(207): error C231: 'CCF1': redefinition
+D:\KEIL\C51\INC\STC12.H(208): error C231: 'CCF0': redefinition
+D:\KEIL\C51\INC\STC12.H(210): error C231: 'CMOD': redefinition
+D:\KEIL\C51\INC\STC12.H(230): error C231: 'CL': redefinition
+D:\KEIL\C51\INC\STC12.H(231): error C231: 'CH': redefinition
+D:\KEIL\C51\INC\STC12.H(234): error C231: 'CCAPM0': redefinition
+D:\KEIL\C51\INC\STC12.H(235): error C231: 'CCAPM1': redefinition
+D:\KEIL\C51\INC\STC12.H(262): error C231: 'CCAP0L': redefinition
+D:\KEIL\C51\INC\STC12.H(263): error C231: 'CCAP0H': redefinition
+D:\KEIL\C51\INC\STC12.H(264): error C231: 'CCAP1L': redefinition
+D:\KEIL\C51\INC\STC12.H(265): error C231: 'CCAP1H': redefinition
+D:\KEIL\C51\INC\STC12.H(268): error C231: 'PCA_PWM0': redefinition
+D:\KEIL\C51\INC\STC12.H(269): error C231: 'PCA_PWM1': redefinition
+D:\KEIL\C51\INC\STC12.H(278): error C231: 'ADC_CONTR': redefinition
+D:\KEIL\C51\INC\STC12.H(280): error C231: 'ADC_RES': redefinition
+D:\KEIL\C51\INC\STC12.H(281): error C231: 'ADC_RESL': redefinition
+D:\KEIL\C51\INC\STC12.H(282): error C231: 'P1ASF': redefinition
+D:\KEIL\C51\INC\STC12.H(286): error C231: 'SPCTL': redefinition
+D:\KEIL\C51\INC\STC12.H(287): error C231: 'SPSTAT': redefinition
+D:\KEIL\C51\INC\STC12.H(288): error C231: 'SPDAT': redefinition
+D:\KEIL\C51\INC\STC12.H(291): error C231: 'IAP_DATA': redefinition
+D:\KEIL\C51\INC\STC12.H(292): error C231: 'IAP_ADDRH': redefinition
+D:\KEIL\C51\INC\STC12.H(293): error C231: 'IAP_ADDRL': redefinition
+D:\KEIL\C51\INC\STC12.H(295): error C231: 'IAP_CMD': redefinition
+D:\KEIL\C51\INC\STC12.H(296): error C231: 'IAP_TRIG': redefinition
+D:\KEIL\C51\INC\STC12.H(297): error C231: 'IAP_CONTR': redefinition
+..\AT24C04\AT24C04.C(59): error C202: 'table': undefined identifier
+compiling at24c04.c...
+..\DS18B20\DS18B20.H(7): error C129: missing ';' before 'read_temp'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\AT24C04\AT24C04.C(59): error C202: 'table': undefined identifier
+compiling at24c04.c...
+..\DS18B20\DS18B20.H(7): error C129: missing ';' before 'read_temp'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\DS18B20\DS18B20.C(269): error C202: 'BUF': undefined identifier
+..\DS18B20\DS18B20.C(270): error C202: 'BUF': undefined identifier
+compiling at24c04.c...
+..\DS18B20\DS18B20.H(7): error C129: missing ';' before 'read_temp'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\DS18B20\DS18B20.C(16): error C129: missing ';' before 'BUF'
+compiling at24c04.c...
+..\DS18B20\DS18B20.H(7): error C129: missing ';' before 'read_temp'
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\DS18B20\DS18B20.C(16): error C129: missing ';' before 'BUF'
+compiling at24c04.c...
+..\AT24C04\AT24C04.C(59): error C202: 'table': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\DS18B20\DS18B20.C(16): error C129: missing ';' before 'BUF'
+compiling at24c04.c...
+..\AT24C04\AT24C04.C(59): error C202: 'table': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\DS18B20\DS18B20.C(16): error C129: missing ';' before 'BUF'
+compiling at24c04.c...
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+compiling at24c04.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_HLINE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SLINE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_DISPICTURE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_HZ3232S?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_ZM3216S?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_RECTANGLE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_CHARTOHEX?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY5MS?AT24C04
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_GUI_SPRINTF_CHAR?GUI
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_ADDRESS_SET?TFT
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_WRITE_BYTE?DS18B20
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?READ_BYTE?DS18B20
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+Program Size: data=17.1 xdata=278 code=15106
+creating hex file from "gui函数"...
+"gui函数" - 0 Error(s), 16 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+compiling at24c04.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_HLINE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SLINE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_DISPICTURE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_HZ3232S?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_ZM3216S?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_RECTANGLE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_CHARTOHEX?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY5MS?AT24C04
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_GUI_SPRINTF_CHAR?GUI
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_ADDRESS_SET?TFT
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_WRITE_BYTE?DS18B20
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?READ_BYTE?DS18B20
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+Program Size: data=17.1 xdata=278 code=15106
+creating hex file from "gui函数"...
+"gui函数" - 0 Error(s), 16 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\DS18B20\DS18B20.C(300): error C202: 'table0': undefined identifier
+..\DS18B20\DS18B20.C(301): error C202: 'table0': undefined identifier
+..\DS18B20\DS18B20.C(302): error C202: 'table0': undefined identifier
+..\DS18B20\DS18B20.C(303): error C202: 'table0': undefined identifier
+..\DS18B20\DS18B20.C(304): error C202: 'table0': undefined identifier
+..\DS18B20\DS18B20.C(305): error C202: 'table0': undefined identifier
+..\DS18B20\DS18B20.C(306): error C202: 'table0': undefined identifier
+..\DS18B20\DS18B20.C(307): error C202: 'table0': undefined identifier
+compiling at24c04.c...
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+compiling at24c04.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_HLINE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SLINE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_DISPICTURE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_HZ3232S?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_ZM3216S?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_RECTANGLE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_CHARTOHEX?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY5MS?AT24C04
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_GUI_SPRINTF_CHAR?GUI
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_ADDRESS_SET?TFT
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_WRITE_BYTE?DS18B20
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?READ_BYTE?DS18B20
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+Program Size: data=17.1 xdata=278 code=15130
+creating hex file from "gui函数"...
+"gui函数" - 0 Error(s), 16 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'Delay5ms': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(49): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+compiling at24c04.c...
 linking...
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_GUI_HLINE?GUI
@@ -47,6 +980,303 @@ linking...
     SEGMENT: ?PR?READ_BYTE?DS18B20
     CALLER1: ?C_C51STARTUP
     CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
-Program Size: data=17.0 xdata=267 code=14434
+Program Size: data=17.1 xdata=278 code=15139
 creating hex file from "gui函数"...
-"gui函数" - 0 Error(s), 13 Warning(s).
+"gui函数" - 0 Error(s), 16 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'Delay5ms': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(49): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+compiling at24c04.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_HLINE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SLINE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_DISPICTURE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_HZ3232S?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_ZM3216S?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_RECTANGLE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_CHARTOHEX?GUI
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_GUI_SPRINTF_CHAR?GUI
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_ADDRESS_SET?TFT
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_WRITE_BYTE?DS18B20
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?READ_BYTE?DS18B20
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+Program Size: data=17.1 xdata=278 code=15139
+creating hex file from "gui函数"...
+"gui函数" - 0 Error(s), 16 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'Delay5ms': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(49): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+..\DS18B20\DS18B20.C(201): error C183: unmodifiable lvalue
+compiling at24c04.c...
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'Delay5ms': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(49): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+compiling at24c04.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_HLINE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SLINE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_DISPICTURE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_HZ3232S?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_ZM3216S?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_RECTANGLE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_CHARTOHEX?GUI
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_GUI_SPRINTF_CHAR?GUI
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_ADDRESS_SET?TFT
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_WRITE_BYTE?DS18B20
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?READ_BYTE?DS18B20
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+Program Size: data=17.1 xdata=278 code=15139
+creating hex file from "gui函数"...
+"gui函数" - 0 Error(s), 16 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'Delay5ms': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(49): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+compiling at24c04.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_HLINE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SLINE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_DISPICTURE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_HZ3232S?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_ZM3216S?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_RECTANGLE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_CHARTOHEX?GUI
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_GUI_SPRINTF_CHAR?GUI
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_ADDRESS_SET?TFT
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_WRITE_BYTE?DS18B20
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?READ_BYTE?DS18B20
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+Program Size: data=17.1 xdata=278 code=15139
+creating hex file from "gui函数"...
+"gui函数" - 0 Error(s), 16 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'Delay5ms': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(49): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+compiling at24c04.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_HLINE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SLINE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_DISPICTURE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_HZ3232S?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_ZM3216S?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_RECTANGLE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_CHARTOHEX?GUI
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_GUI_SPRINTF_CHAR?GUI
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_ADDRESS_SET?TFT
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_WRITE_BYTE?DS18B20
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?READ_BYTE?DS18B20
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+Program Size: data=17.1 xdata=278 code=15139
+creating hex file from "gui函数"...
+"gui函数" - 0 Error(s), 16 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'Delay5ms': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(49): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+compiling at24c04.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_HLINE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SLINE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_DISPICTURE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_HZ3232S?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_ZM3216S?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_RECTANGLE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_CHARTOHEX?GUI
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_GUI_SPRINTF_CHAR?GUI
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_ADDRESS_SET?TFT
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_WRITE_BYTE?DS18B20
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?READ_BYTE?DS18B20
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+Program Size: data=17.1 xdata=278 code=15118
+creating hex file from "gui函数"...
+"gui函数" - 0 Error(s), 16 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling tft.C...
+compiling GUI.C...
+compiling Text3.c...
+TEXT3.C(46): warning C206: 'Delay5ms': missing function-prototype
+TEXT3.C(47): warning C206: 'AT24C04_WritePage': missing function-prototype
+TEXT3.C(49): warning C206: 'AT24C04_ReadPage': missing function-prototype
+TEXT3.C(20): warning C280: 'x': unreferenced local variable
+TEXT3.C(20): warning C280: 'y': unreferenced local variable
+compiling ds18b20.c...
+compiling at24c04.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_HLINE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SLINE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_DISPICTURE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_HZ3232S?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_ZM3216S?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_RECTANGLE?GUI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GUI_SPRINTF_CHARTOHEX?GUI
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_GUI_SPRINTF_CHAR?GUI
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_ADDRESS_SET?TFT
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_WRITE_BYTE?DS18B20
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?READ_BYTE?DS18B20
+    CALLER1: ?C_C51STARTUP
+    CALLER2: ?PR?TIMER0_ROUTINE?TEXT3
+Program Size: data=17.1 xdata=278 code=15139
+creating hex file from "gui函数"...
+"gui函数" - 0 Error(s), 16 Warning(s).

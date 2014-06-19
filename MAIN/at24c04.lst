@@ -1,0 +1,249 @@
+C51 COMPILER V9.00   AT24C04                                                               06/19/2014 21:06:34 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE AT24C04
+OBJECT MODULE PLACED IN .\at24c04.obj
+COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE ..\at24c04\at24c04.c LARGE BROWSE INCDIR(..\delay;..\GUI;..\USER;..\ds18b20
+                    -;..\tft;..\at24c04) DEBUG OBJECTEXTEND PRINT(.\at24c04.lst) OBJECT(.\at24c04.obj)
+
+line level    source
+
+   1          /**************************************
+   2          AT24C04读写函数
+   3          主芯片  : STC12C5A60S2 (1T)
+   4          工作频率: 12.000MHz
+   5          **************************************/
+   6          #include "INTRINS.H"
+   7          #include "STC12.h"
+   8          #include "DS18B20.H"
+   9          //#include "ds18b20.c"
+  10          
+  11          typedef unsigned char BYTE;
+  12          typedef unsigned short WORD;
+  13          extern unsigned char data table[8];
+  14          
+  15          
+  16          
+  17          sbit SCL = P1^3;                //AT24C04的时钟
+  18          sbit SDA = P1^4;                //AT24C04的数据
+  19          //sbit STATUS=P4^6;
+  20          //P4M0=0x00;
+  21          //P4M1=0x00;
+  22          //P4M1=0x00;//P4.1 P4.4 P4.5 P4.6推挽
+  23          //P4M0=0x72;    
+  24          //P4SW=0x70;//P4.4=I/O P4.5=I/O P4.6=I/O        
+  25          
+  26          
+  27          BYTE BUF[8];                   //数据缓存区
+  28          
+  29          /*BYTE code TESTDATA[] =
+  30          {
+  31              0x00,0x11,0x22,0x33,0x44,0x55,0x66,0x77,
+  32              0x88,0x99,0xAA,0xBB,0xCC,0xDD,0xEE,0xFF
+  33          };
+  34          */
+  35          void Delay5us();
+  36          void Delay5ms();
+  37          void AT24C04_Start();
+  38          void AT24C04_Stop();
+  39          void AT24C04_SendACK(bit ack);
+  40          bit AT24C04_RecvACK();
+  41          void AT24C04_SendByte(BYTE dat);
+  42          BYTE AT24C04_RecvByte();
+  43          void AT24C04_ReadPage();
+  44          void AT24C04_WritePage();
+  45          
+  46          
+  47          /**************************************
+  48          向AT24C04写1页(8字节)数据
+  49          将TESTDATA开始的16个测试数据写如设备的00~0F地址中
+  50          **************************************/
+  51          void AT24C04_WritePage()
+  52          {
+  53   1          BYTE i;
+  54   1      
+C51 COMPILER V9.00   AT24C04                                                               06/19/2014 21:06:34 PAGE 2   
+
+  55   1          AT24C04_Start();            //起始信号
+  56   1          AT24C04_SendByte(0xa0);     //发送设备地址+写信号
+  57   1          AT24C04_SendByte(0x00);     //发送存储单元地址
+  58   1          for (i=0; i<8; i++)
+  59   1          {
+  60   2              AT24C04_SendByte(table[i]);
+  61   2          }
+  62   1          AT24C04_Stop();             //停止信号
+  63   1      }
+  64          
+  65          /**************************************
+  66          从AT24C04读取1页(8字节)数据
+  67          将设备的00~0F地址中的数据读出存放在DATA区的BUF中
+  68          **************************************/
+  69          void AT24C04_ReadPage()
+  70          {
+  71   1          BYTE i;
+  72   1      
+  73   1          AT24C04_Start();            //起始信号
+  74   1          AT24C04_SendByte(0xa0);     //发送设备地址+写信号
+  75   1          AT24C04_SendByte(0x00);     //发送存储单元地址
+  76   1          AT24C04_Start();            //起始信号
+  77   1          AT24C04_SendByte(0xa1);     //发送设备地址+读信号
+  78   1          for (i=0; i<8; i++)
+  79   1          {
+  80   2              BUF[i] = AT24C04_RecvByte();
+  81   2              if (i == 7)
+  82   2              {
+  83   3                  AT24C04_SendACK(1); //最后一个数据需要会NAK
+  84   3              }
+  85   2              else
+  86   2              {
+  87   3                  AT24C04_SendACK(0); //回应ACK
+  88   3              }
+  89   2          }
+  90   1          AT24C04_Stop();             //停止信号
+  91   1      }
+  92          
+  93          /**************************************
+  94          延时5微秒(STC12C5A60S2@12M)
+  95          不同的工作环境,需要调整此函数
+  96          此延时函数是使用1T的指令周期进行计算,与传统的12T的MCU不同
+  97          **************************************/
+  98          void Delay5us()
+  99          {
+ 100   1          BYTE n = 4;
+ 101   1      
+ 102   1          while (n--)
+ 103   1          {
+ 104   2              _nop_();
+ 105   2              _nop_();
+ 106   2          }
+ 107   1      }
+ 108          
+ 109          /**************************************
+ 110          延时5毫秒(STC12C5A60S2@12M)
+ 111          不同的工作环境,需要调整此函数
+ 112          此延时函数是使用1T的指令周期进行计算,与传统的12T的MCU不同
+ 113          **************************************/
+ 114          void Delay5ms()
+ 115          {
+ 116   1          WORD n = 2500;
+C51 COMPILER V9.00   AT24C04                                                               06/19/2014 21:06:34 PAGE 3   
+
+ 117   1      
+ 118   1          while (n--)
+ 119   1          {
+ 120   2              _nop_();
+ 121   2              _nop_();
+ 122   2              _nop_();
+ 123   2              _nop_();
+ 124   2              _nop_();
+ 125   2          }
+ 126   1      }
+ 127          
+ 128          /**************************************
+ 129          起始信号
+ 130          **************************************/
+ 131          void AT24C04_Start()
+ 132          {
+ 133   1          SDA = 1;                    //拉高数据线
+ 134   1          SCL = 1;                    //拉高时钟线
+ 135   1          Delay5us();                 //延时
+ 136   1          SDA = 0;                    //产生下降沿
+ 137   1          Delay5us();                 //延时
+ 138   1          SCL = 0;                    //拉低时钟线
+ 139   1      }
+ 140          
+ 141          /**************************************
+ 142          停止信号
+ 143          **************************************/
+ 144          void AT24C04_Stop()
+ 145          {
+ 146   1          SDA = 0;                    //拉低数据线
+ 147   1          SCL = 1;                    //拉高时钟线
+ 148   1          Delay5us();                 //延时
+ 149   1          SDA = 1;                    //产生上升沿
+ 150   1          Delay5us();                 //延时
+ 151   1      }
+ 152          
+ 153          /**************************************
+ 154          发送应答信号
+ 155          入口参数:ack (0:ACK 1:NAK)
+ 156          **************************************/
+ 157          void AT24C04_SendACK(bit ack)
+ 158          {
+ 159   1          SDA = ack;                  //写应答信号
+ 160   1          SCL = 1;                    //拉高时钟线
+ 161   1          Delay5us();                 //延时
+ 162   1          SCL = 0;                    //拉低时钟线
+ 163   1          Delay5us();                 //延时
+ 164   1      }
+ 165          
+ 166          /**************************************
+ 167          接收应答信号
+ 168          **************************************/
+ 169          bit AT24C04_RecvACK()
+ 170          {
+ 171   1          SCL = 1;                    //拉高时钟线
+ 172   1          Delay5us();                 //延时
+ 173   1          CY = SDA;                   //读应答信号
+ 174   1          SCL = 0;                    //拉低时钟线
+ 175   1          Delay5us();                 //延时
+ 176   1      
+ 177   1          return CY;
+ 178   1      }
+C51 COMPILER V9.00   AT24C04                                                               06/19/2014 21:06:34 PAGE 4   
+
+ 179          
+ 180          /**************************************
+ 181          向IIC总线发送一个字节数据
+ 182          **************************************/
+ 183          void AT24C04_SendByte(BYTE dat)
+ 184          {
+ 185   1          BYTE i;
+ 186   1      
+ 187   1          for (i=0; i<8; i++)         //8位计数器
+ 188   1          {
+ 189   2              dat <<= 1;              //移出数据的最高位
+ 190   2              SDA = CY;               //送数据口
+ 191   2              SCL = 1;                //拉高时钟线
+ 192   2              Delay5us();             //延时
+ 193   2              SCL = 0;                //拉低时钟线
+ 194   2              Delay5us();             //延时
+ 195   2          }
+ 196   1          AT24C04_RecvACK();
+ 197   1      }
+ 198          
+ 199          /**************************************
+ 200          从IIC总线接收一个字节数据
+ 201          **************************************/
+ 202          BYTE AT24C04_RecvByte()
+ 203          {
+ 204   1          BYTE i;
+ 205   1          BYTE dat = 0;
+ 206   1      
+ 207   1          SDA = 1;                    //使能内部上拉,准备读取数据
+ 208   1          for (i=0; i<8; i++)         //8位计数器
+ 209   1          {
+ 210   2              dat <<= 1;
+ 211   2              SCL = 1;                //拉高时钟线
+ 212   2              Delay5us();             //延时
+ 213   2              dat |= SDA;             //读数据
+ 214   2              SCL = 0;                //拉低时钟线
+ 215   2              Delay5us();             //延时
+ 216   2          }
+ 217   1      
+ 218   1          return dat;
+ 219   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    271    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      8       2
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       1
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

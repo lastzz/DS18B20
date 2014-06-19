@@ -43,6 +43,11 @@ TMOD=0x01;/*设置定时器0为工作方式1*/
 	TR0=1;/*启动定时器0*/
 	
 ReadROM();
+Delay5ms();
+AT24C04_WritePage();
+Delay5ms();
+AT24C04_ReadPage();
+Delay5ms();
 display00();
 while(1);
 }

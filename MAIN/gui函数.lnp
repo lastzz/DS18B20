@@ -3,6 +3,7 @@
 ".\tft.obj",
 ".\GUI.obj",
 "Text3.obj",
-".\ds18b20.obj" 
+".\ds18b20.obj",
+".\at24c04.obj" 
 TO "guiº¯Êý" 
 RAMSIZE(256) 

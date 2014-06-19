@@ -1,10 +1,10 @@
-C51 COMPILER V9.00   GUI                                                                   06/18/2014 10:57:10 PAGE 1   
+C51 COMPILER V9.00   GUI                                                                   06/19/2014 21:06:34 PAGE 1   
 
 
 C51 COMPILER V9.00, COMPILATION OF MODULE GUI
 OBJECT MODULE PLACED IN .\GUI.obj
-COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE ..\GUI\GUI.C LARGE BROWSE INCDIR(..\delay;..\GUI;..\USER;..\ds18b20;..\tft)
-                    - DEBUG OBJECTEXTEND PRINT(.\GUI.lst) OBJECT(.\GUI.obj)
+COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE ..\GUI\GUI.C LARGE BROWSE INCDIR(..\delay;..\GUI;..\USER;..\ds18b20;..\tft;
+                    -..\at24c04) DEBUG OBJECTEXTEND PRINT(.\GUI.lst) OBJECT(.\GUI.obj)
 
 line level    source
 
@@ -62,7 +62,7 @@ line level    source
   52          /**********************************************************
   53          画横线
   54          入口参数： (x，y)是横线起点坐标，length是横线长度，color 是横线颜色。
-C51 COMPILER V9.00   GUI                                                                   06/18/2014 10:57:10 PAGE 2   
+C51 COMPILER V9.00   GUI                                                                   06/19/2014 21:06:34 PAGE 2   
 
   55          出口参数: 无
   56          说明：用指定的颜色在指定位置上画出指定长度的一条横线。
@@ -126,7 +126,7 @@ line level    source
  114   2          }  
  115   1          if(delta_x>delta_y) distance=delta_x;//选取基本增量坐标轴  
  116   1          else distance=delta_y;  
-C51 COMPILER V9.00   GUI                                                                   06/18/2014 10:57:10 PAGE 3   
+C51 COMPILER V9.00   GUI                                                                   06/19/2014 21:06:34 PAGE 3   
 
  117   1      
  118   1          for(t=0;t<=distance+1;t++)  
@@ -190,7 +190,7 @@ line level    source
  175          
  176          /*********************************************
  177          显示英文或数字字符
-C51 COMPILER V9.00   GUI                                                                   06/18/2014 10:57:10 PAGE 4   
+C51 COMPILER V9.00   GUI                                                                   06/19/2014 21:06:34 PAGE 4   
 
  178          入口参数：(x，y) 是显示内容的左上角坐标，c：显示的英文字符，
  179                    color:颜色,b_color:背景颜色。
@@ -254,7 +254,7 @@ line level    source
  235   6                                      }
  236   5                              m<<=1;                                                                                           //左移一位  判断下一点
  237   5                              } 
-C51 COMPILER V9.00   GUI                                                                   06/18/2014 10:57:10 PAGE 5   
+C51 COMPILER V9.00   GUI                                                                   06/19/2014 21:06:34 PAGE 5   
 
  238   4                        }
  239   3                      }  
@@ -318,7 +318,7 @@ line level    source
  295   6                                      Lcd_Write_Data(dcolor>>8,dcolor);
  296   6                                      }
  297   5                              else {
-C51 COMPILER V9.00   GUI                                                                   06/18/2014 10:57:10 PAGE 6   
+C51 COMPILER V9.00   GUI                                                                   06/19/2014 21:06:34 PAGE 6   
 
  298   6                                  Lcd_Write_Data(bgcolor>>8,bgcolor);
  299   6                                      }
@@ -382,7 +382,7 @@ line level    source
  355          /*********************************************
  356          显示16x32字母串
  357          入口参数：(x，y) 是显示内容的左上角坐标，*s：英文字符串指针，
-C51 COMPILER V9.00   GUI                                                                   06/18/2014 10:57:10 PAGE 7   
+C51 COMPILER V9.00   GUI                                                                   06/19/2014 21:06:34 PAGE 7   
 
  358                    color:颜色,b_color:背景颜色。
  359          出口参数: 无
@@ -446,7 +446,7 @@ line level    source
  416          入口参数： 
  417             x，y ----是显示内容的右上角坐标 
  418              num ----欲显示的长变量
-C51 COMPILER V9.00   GUI                                                                   06/18/2014 10:57:10 PAGE 8   
+C51 COMPILER V9.00   GUI                                                                   06/19/2014 21:06:34 PAGE 8   
 
  419             bits ----允许显示的位数
  420               dp ----小数点位置
@@ -510,7 +510,7 @@ line level    source
  478   4                                      x=x-8;
  479   4                              }
  480   3                              else
-C51 COMPILER V9.00   GUI                                                                   06/18/2014 10:57:10 PAGE 9   
+C51 COMPILER V9.00   GUI                                                                   06/19/2014 21:06:34 PAGE 9   
 
  481   3                              {
  482   4                                      if ((i==dp)&(i!=0)) 
@@ -574,7 +574,7 @@ line level    source
  540   5                                    {
  541   6                                              GUI_Point(x+s_x, y+s_y,b_color) ;
  542   6                                         }
-C51 COMPILER V9.00   GUI                                                                   06/18/2014 10:57:10 PAGE 10  
+C51 COMPILER V9.00   GUI                                                                   06/19/2014 21:06:34 PAGE 10  
 
  543   5                                 }
  544   4                         }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="project_proj.xsd">
 
-  <SchemaVersion>1.1</SchemaVersion>
+  <SchemaVersion>1.0</SchemaVersion>
 
   <Header>### uVision Project, (C) Keil Software</Header>
 
@@ -29,7 +29,6 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile></SFDFile>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
           <IncludePath></IncludePath>
@@ -295,7 +294,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\delay;..\GUI;..\USER;..\ds18b20;..\tft</IncludePath>
+              <IncludePath>..\delay;..\GUI;..\USER;..\ds18b20;..\tft;..\at24c04</IncludePath>
             </VariousControls>
           </C51>
           <Ax51>
@@ -401,6 +400,21 @@
               <FileName>ds18b20.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\ds18b20\ds18b20.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>AT24C04</GroupName>
+          <Files>
+            <File>
+              <FileName>at24c04.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\at24c04\at24c04.h</FilePath>
+            </File>
+            <File>
+              <FileName>at24c04.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\at24c04\at24c04.c</FilePath>
             </File>
           </Files>
         </Group>

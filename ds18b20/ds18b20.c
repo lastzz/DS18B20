@@ -6,12 +6,15 @@
 #include "def.h"
 #include "ds18b20.h"
 #include "gui.h"
+//#include "at24c04.c"
 
 //uint    c,d,e,f,g,h,i,l,c1,d1,e1,f1,g1,h1,i1,l1;
 //uchar   tmp[]={0x30,0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39,0x41,0x42,0x43,0x44,0x45,0x46}; //数字0-9,A-F的ASCII码
 
-uchar data table[8];
-uchar tempL,tempH;   
+unsigned char data table[8];
+unsigned char tempL,tempH; 
+typedef unsigned char BYTE;
+extern BYTE BUF[8];  
 
 //uchar sn[8];
 //uchar code table[]={"0123456789ABCDEF"};                                      
@@ -258,15 +261,15 @@ uint read_temp()
 */     
  void display00(void)                                                   //显示函数
 {
-/*        uint num,tableH,tableL,i;
+        uint num,tableH,tableL,i;
         uchar table0[16];
         num=0;
         while(num<16)
         {
                 for(i=0;i<8;i++)
                 {       
-                        tableL=table[i]&0x0f;                                        //低四位
-                        tableH=table[i]>>4;
+                        tableL=BUF[i]&0x0f;                                        //低四位
+                        tableH=BUF[i]>>4;
                         tableH&=0x0f;                                                           //高四位
                         if((tableH<=0x09)&&(tableH>=0x00))                                                                //小于等于9的话，显示数字，+0x30
                         {
@@ -284,24 +287,24 @@ uint read_temp()
         }
         //Write_com(0x80);
 //        for(num=0;num<16;num++)
-//        {															  */
-                GUI_sprintf_char(30,220,(table[0]),0xf800,0);
+//        {															  
+                GUI_sprintf_char(30,220,(table0[0]),0xf800,0);
 				//GUI_sprintf_ZM3216s(30,220,(table[0]),0xf800,0);
-				GUI_sprintf_char(40,220,(table[1]),0xf800,0);
-				GUI_sprintf_char(50,220,(table[2]),0xf800,0);
-				GUI_sprintf_char(60,220,(table[3]),0xf800,0);
-				GUI_sprintf_char(70,220,(table[4]),0xf800,0);
-				GUI_sprintf_char(80,220,(table[5]),0xf800,0);
-				GUI_sprintf_char(90,220,(table[6]),0xf800,0);
-				GUI_sprintf_char(100,220,(table[7]),0xf800,0);
-/*				GUI_sprintf_char(110,220,(table0[8]),0xf800,0);
+				GUI_sprintf_char(40,220,(table0[1]),0xf800,0);
+				GUI_sprintf_char(50,220,(table0[2]),0xf800,0);
+				GUI_sprintf_char(60,220,(table0[3]),0xf800,0);
+				GUI_sprintf_char(70,220,(table0[4]),0xf800,0);
+				GUI_sprintf_char(80,220,(table0[5]),0xf800,0);
+				GUI_sprintf_char(90,220,(table0[6]),0xf800,0);
+				GUI_sprintf_char(100,220,(table0[7]),0xf800,0);
+				GUI_sprintf_char(110,220,(table0[8]),0xf800,0);
 				GUI_sprintf_char(120,220,(table0[9]),0xf800,0);
 				GUI_sprintf_char(130,220,(table0[10]),0xf800,0);
 				GUI_sprintf_char(140,220,(table0[11]),0xf800,0);
 				GUI_sprintf_char(150,220,(table0[12]),0xf800,0);
 				GUI_sprintf_char(160,220,(table0[13]),0xf800,0);
 				GUI_sprintf_char(170,220,(table0[14]),0xf800,0);
-				GUI_sprintf_char(180,220,(table0[15]),0xf800,0);    */        
+				GUI_sprintf_char(180,220,(table0[15]),0xf800,0);            
 }
 
 /*void get_number()               //读取ds18b20的序列号

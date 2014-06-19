@@ -1,10 +1,10 @@
-C51 COMPILER V9.00   DS18B20                                                               06/18/2014 10:57:10 PAGE 1   
+C51 COMPILER V9.00   DS18B20                                                               06/19/2014 21:06:34 PAGE 1   
 
 
 C51 COMPILER V9.00, COMPILATION OF MODULE DS18B20
 OBJECT MODULE PLACED IN .\ds18b20.obj
 COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE ..\ds18b20\ds18b20.c LARGE BROWSE INCDIR(..\delay;..\GUI;..\USER;..\ds18b20
-                    -;..\tft) DEBUG OBJECTEXTEND PRINT(.\ds18b20.lst) OBJECT(.\ds18b20.obj)
+                    -;..\tft;..\at24c04) DEBUG OBJECTEXTEND PRINT(.\ds18b20.lst) OBJECT(.\ds18b20.obj)
 
 line level    source
 
@@ -16,388 +16,391 @@ line level    source
    6          #include "def.h"
    7          #include "ds18b20.h"
    8          #include "gui.h"
-   9          
-  10          //uint    c,d,e,f,g,h,i,l,c1,d1,e1,f1,g1,h1,i1,l1;
-  11          //uchar   tmp[]={0x30,0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39,0x41,0x42,0x43,0x44,0x45,0x46}; //数字0
+   9          //#include "at24c04.c"
+  10          
+  11          //uint    c,d,e,f,g,h,i,l,c1,d1,e1,f1,g1,h1,i1,l1;
+  12          //uchar   tmp[]={0x30,0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39,0x41,0x42,0x43,0x44,0x45,0x46}; //数字0
              --9,A-F的ASCII码
-  12          
-  13          uchar data table[8];
-  14          uchar tempL,tempH;   
-  15          
-  16          //uchar sn[8];
-  17          //uchar code table[]={"0123456789ABCDEF"};                                      
-  18                                                                                    //设置温度值高位和低位 
-  19          
-  20          //uchar x,c;
-  21          //uchar  flag_get;    //温度 标志位函数
-  22          sbit DQ=P1^1;       //ds18b20 端口
-  23          
-  24          
-  25          
-  26          // ****************DS18B20复位函数************************/
-  27          void ow_reset(void)
-  28          {
-  29   1      
-  30   1       
-  31   1          DQ=1;//从高拉倒低
-  32   1          delay(200);
-  33   1          DQ=0;
-  34   1          delay(1000);           //550 us
-  35   1          DQ=1;
-  36   1          delay(1000);            //延时500 us  这是DQ应该为0 说明复位成功 这里没有用死循环判断 怕干扰时钟
-  37   1      
-  38   1      
-  39   1          DQ=1;                   //拉高电平
-  40   1      }
-  41          
-  42          
-  43          //**********************************************************************
-  44           // ack_ds18b20:  等待DS18B20应答
-  45           //功     能  ----等待DS18B20应答
-  46           //入口参数:  ----无
-  47           //出口参数:  ----0: 没有DS18B20器件或主机复位失败
-  48           //              1: 发现DS18B20器件
-  49           //**********************************************************************
-  50          //unsigned char ack_ds18b20(void) 
-  51          //{ 
-  52          //      unsigned char Value=1;
-  53          //      DQ=1;; /*释放总线等电阻拉高总线*/
-C51 COMPILER V9.00   DS18B20                                                               06/18/2014 10:57:10 PAGE 2   
+  13          
+  14          unsigned char data table[8];
+  15          unsigned char tempL,tempH; 
+  16          typedef unsigned char BYTE;
+  17          extern BYTE BUF[8];  
+  18          
+  19          //uchar sn[8];
+  20          //uchar code table[]={"0123456789ABCDEF"};                                      
+  21                                                                                    //设置温度值高位和低位 
+  22          
+  23          //uchar x,c;
+  24          //uchar  flag_get;    //温度 标志位函数
+  25          sbit DQ=P1^1;       //ds18b20 端口
+  26          
+  27          
+  28          
+  29          // ****************DS18B20复位函数************************/
+  30          void ow_reset(void)
+  31          {
+  32   1      
+  33   1       
+  34   1          DQ=1;//从高拉倒低
+  35   1          delay(200);
+  36   1          DQ=0;
+  37   1          delay(1000);           //550 us
+  38   1          DQ=1;
+  39   1          delay(1000);            //延时500 us  这是DQ应该为0 说明复位成功 这里没有用死循环判断 怕干扰时钟
+  40   1      
+  41   1      
+  42   1          DQ=1;                   //拉高电平
+  43   1      }
+  44          
+  45          
+  46          //**********************************************************************
+  47           // ack_ds18b20:  等待DS18B20应答
+  48           //功     能  ----等待DS18B20应答
+  49           //入口参数:  ----无
+  50           //出口参数:  ----0: 没有DS18B20器件或主机复位失败
+  51           //              1: 发现DS18B20器件
+  52           //**********************************************************************
+  53          //unsigned char ack_ds18b20(void) 
+C51 COMPILER V9.00   DS18B20                                                               06/19/2014 21:06:34 PAGE 2   
 
-  54          //      while(DQ==1); 
-  55          //      while(DQ==0)Value=0; 
-  56          //      /*接收到应答信号*/
-  57           
-  58          //      delay(33); 
-  59                  
-  60          //      if (Value) return 0;
-  61          //      return 1;
-  62          //} 
-  63          
-  64          
-  65          /****************DS18B20写命令函数************************/
-  66          //向1-WIRE 总线上写1个字节
-  67          void write_byte(uchar val)
-  68          {
-  69   1        uchar i;
-  70   1        for(i=8;i>0;i--)
-  71   1        {
-  72   2         DQ=1;                 //从高拉倒低
-  73   2         DQ=0;                  //5 us
-  74   2         DQ=val&0x01;                           //最低位移出
-  75   2         delay(100);                              //66 us
-  76   2         val=val/2;                             //右移1位 
-  77   2         }
-  78   1         DQ=1;
-  79   1         delay(1);
-  80   1      }
-  81          //
-  82          /****************DS18B20读1字节函数************************/
-  83          //从总线上取1个字节
-  84          
-  85          uchar read_byte(void)
-  86          {
-  87   1          int i=0;
-  88   1              unsigned int u=0;
-  89   1              for (i=0;i<8;i++)
-  90   1              {   
-  91   2      //              DQ_LOW();
-  92   2              DQ=0;
-  93   2      //              delay2us();/*从高拉至低电平,产生读时间隙,2us*/
-  94   2                      delay(10);
-  95   2                      u>>=1;
-  96   2      //              DQ_HIGH();
-  97   2                      DQ=1;
-  98   2      //              delay2us();/*此延时必须要加，否则由于刚设置为输入，信号不稳定，立即读入时会是错误值*/
-  99   2      //              delay2us();
- 100   2      //              delay1us();
- 101   2                      delay(10);
- 102   2                      if(DQ) u|=0x80;/*读入位*/
- 103   2                      delay(100);
- 104   2                      }
- 105   1      //              delay8((FOSC/1000000*56-18)/10);//56us
- 106   1      
- 107   1      /*uchar i;
- 108   1      uchar value=0;
- 109   1      for(i=8;i>0;i--)
- 110   1      {
- 111   1        DQ=1;
- 112   1        value>>=1;   //value=value>>1
- 113   1        DQ=0;                                           //4 us
- 114   1        DQ=1;                                         //4 us
- 115   1        if(DQ)value|=0x8000;
-C51 COMPILER V9.00   DS18B20                                                               06/18/2014 10:57:10 PAGE 3   
+  54          //{ 
+  55          //      unsigned char Value=1;
+  56          //      DQ=1;; /*释放总线等电阻拉高总线*/
+  57          //      while(DQ==1); 
+  58          //      while(DQ==0)Value=0; 
+  59          //      /*接收到应答信号*/
+  60           
+  61          //      delay(33); 
+  62                  
+  63          //      if (Value) return 0;
+  64          //      return 1;
+  65          //} 
+  66          
+  67          
+  68          /****************DS18B20写命令函数************************/
+  69          //向1-WIRE 总线上写1个字节
+  70          void write_byte(uchar val)
+  71          {
+  72   1        uchar i;
+  73   1        for(i=8;i>0;i--)
+  74   1        {
+  75   2         DQ=1;                 //从高拉倒低
+  76   2         DQ=0;                  //5 us
+  77   2         DQ=val&0x01;                           //最低位移出
+  78   2         delay(100);                              //66 us
+  79   2         val=val/2;                             //右移1位 
+  80   2         }
+  81   1         DQ=1;
+  82   1         delay(1);
+  83   1      }
+  84          //
+  85          /****************DS18B20读1字节函数************************/
+  86          //从总线上取1个字节
+  87          
+  88          uchar read_byte(void)
+  89          {
+  90   1          int i=0;
+  91   1              unsigned int u=0;
+  92   1              for (i=0;i<8;i++)
+  93   1              {   
+  94   2      //              DQ_LOW();
+  95   2              DQ=0;
+  96   2      //              delay2us();/*从高拉至低电平,产生读时间隙,2us*/
+  97   2                      delay(10);
+  98   2                      u>>=1;
+  99   2      //              DQ_HIGH();
+ 100   2                      DQ=1;
+ 101   2      //              delay2us();/*此延时必须要加，否则由于刚设置为输入，信号不稳定，立即读入时会是错误值*/
+ 102   2      //              delay2us();
+ 103   2      //              delay1us();
+ 104   2                      delay(10);
+ 105   2                      if(DQ) u|=0x80;/*读入位*/
+ 106   2                      delay(100);
+ 107   2                      }
+ 108   1      //              delay8((FOSC/1000000*56-18)/10);//56us
+ 109   1      
+ 110   1      /*uchar i;
+ 111   1      uchar value=0;
+ 112   1      for(i=8;i>0;i--)
+ 113   1      {
+ 114   1        DQ=1;
+ 115   1        value>>=1;   //value=value>>1
+C51 COMPILER V9.00   DS18B20                                                               06/19/2014 21:06:34 PAGE 3   
 
- 116   1        delay(100);                                     //66 us
- 117   1      }
- 118   1      DQ=1;
- 119   1      */
- 120   1      return(u);
- 121   1      }
- 122          //
- 123          /****************读出温度函数************************/
- 124          //
- 125          uint read_temp()
- 126          {
- 127   1       unsigned char a=0;
- 128   1       unsigned char b=0;
- 129   1      //  uint tp;
- 130   1          uint t;
- 131   1        ow_reset();                  //总线复位
- 132   1      //  ack_ds18b20();//从机应答
- 133   1      //  delay(500);
- 134   1        write_byte(0xcc);            //发命令
- 135   1      //  write_byte(0x44);            //发转换命令
- 136   1      //  ow_reset();
- 137   1      //  delay(100);
- 138   1      //  write_byte(0xcc);            //发命令
- 139   1        write_byte(0xbe);
- 140   1        delay(300);    
- 141   1      
- 142   1        a=read_byte();    //读温度值的第字节
- 143   1        b=read_byte();    //读温度值的高字节
- 144   1        t=b;
- 145   1       
- 146   1        t <<=8;       // 低位补0 即0x00
- 147   1        t =t |a;      // 两字节合成一个整型变量。
- 148   1      
- 149   1      
- 150   1      //  tp=read_byte();
+ 116   1        DQ=0;                                           //4 us
+ 117   1        DQ=1;                                         //4 us
+ 118   1        if(DQ)value|=0x8000;
+ 119   1        delay(100);                                     //66 us
+ 120   1      }
+ 121   1      DQ=1;
+ 122   1      */
+ 123   1      return(u);
+ 124   1      }
+ 125          //
+ 126          /****************读出温度函数************************/
+ 127          //
+ 128          uint read_temp()
+ 129          {
+ 130   1       unsigned char a=0;
+ 131   1       unsigned char b=0;
+ 132   1      //  uint tp;
+ 133   1          uint t;
+ 134   1        ow_reset();                  //总线复位
+ 135   1      //  ack_ds18b20();//从机应答
+ 136   1      //  delay(500);
+ 137   1        write_byte(0xcc);            //发命令
+ 138   1      //  write_byte(0x44);            //发转换命令
+ 139   1      //  ow_reset();
+ 140   1      //  delay(100);
+ 141   1      //  write_byte(0xcc);            //发命令
+ 142   1        write_byte(0xbe);
+ 143   1        delay(300);    
+ 144   1      
+ 145   1        a=read_byte();    //读温度值的第字节
+ 146   1        b=read_byte();    //读温度值的高字节
+ 147   1        t=b;
+ 148   1       
+ 149   1        t <<=8;       // 低位补0 即0x00
+ 150   1        t =t |a;      // 两字节合成一个整型变量。
  151   1      
- 152   1        /*-----------------------------------*/         
- 153   1              if(t>0x07ff)
- 154   1      //      if(t>0x0fff) /*判断是否为负温，若是负温，取反加一，乘6.25*/
- 155   1              {      
- 156   2                      t=~t;
- 157   2                      t++;
- 158   2                      t=(unsigned int)(t*6.25);
- 159   2                      t|=0xC000;
- 160   2              }
- 161   1              else
- 162   1      //              tp=tp&0x07ff
- 163   1                      t=(unsigned int)(t*6.25);/*是正温*/
- 164   1              
- 165   1        ow_reset();                  //总线复位
- 166   1      //  ack_ds18b20();//从机应答
- 167   1       // delay(500);
- 168   1        write_byte(0xcc);            //发命令
- 169   1        write_byte(0x44);     
- 170   1        return (t);
- 171   1      }
- 172          
- 173          /*  void ReadROM(void)
- 174          {
- 175                  uint i;
- 176                  ow_reset();
- 177                  delay(100);       
-C51 COMPILER V9.00   DS18B20                                                               06/18/2014 10:57:10 PAGE 4   
+ 152   1      
+ 153   1      //  tp=read_byte();
+ 154   1      
+ 155   1        /*-----------------------------------*/         
+ 156   1              if(t>0x07ff)
+ 157   1      //      if(t>0x0fff) /*判断是否为负温，若是负温，取反加一，乘6.25*/
+ 158   1              {      
+ 159   2                      t=~t;
+ 160   2                      t++;
+ 161   2                      t=(unsigned int)(t*6.25);
+ 162   2                      t|=0xC000;
+ 163   2              }
+ 164   1              else
+ 165   1      //              tp=tp&0x07ff
+ 166   1                      t=(unsigned int)(t*6.25);/*是正温*/
+ 167   1              
+ 168   1        ow_reset();                  //总线复位
+ 169   1      //  ack_ds18b20();//从机应答
+ 170   1       // delay(500);
+ 171   1        write_byte(0xcc);            //发命令
+ 172   1        write_byte(0x44);     
+ 173   1        return (t);
+ 174   1      }
+ 175          
+ 176          /*  void ReadROM(void)
+ 177          {
+C51 COMPILER V9.00   DS18B20                                                               06/19/2014 21:06:34 PAGE 4   
 
- 178                  write_byte(0x33);
- 179                  delay(100);
- 180             for(i=0;i<8;i++)
- 181                {
- 182                       sn[i]=readbyte();
- 183                    } 
- 184          
- 185          }
- 186          
- 187          */
- 188           void ReadROM(void)                                                          //读ROM
- 189          {
- 190   1              uint i;
- 191   1              ow_reset();
- 192   1              delay(100);       
- 193   1              write_byte(0x33);
- 194   1              delay(100);
- 195   1              for(i=0;i<=7;i++)
- 196   1              {
- 197   2                  delay(100);
- 198   2                      table[i]=read_byte();              
- 199   2              }
- 200   1      }
- 201              
- 202          
- 203          
- 204          
- 205          /*       void display00(void)
- 206          {
- 207                    unsigned char i,h,l;
- 208                            unsigned char c=1;
- 209                            for(i=0;i<8;i++)
- 210                            {
- 211                            l=(sn[i]&0xf0)>>4;
- 212                            h=sn[i]&0x0f;
- 213          //                GUI_sprintf_chartohex(20,200,(table[l]),0xf800,0);
- 214                            GUI_sprintf_char(20,c,(table[l]),0xf800,0);
- 215                            GUI_sprintf_char(20,c,(table[l]),0xf800,0);
- 216                            c++;c++;
- 217                    }
- 218          }
- 219          /*       void display00(void)
- 220          {
- 221                    unsigned char i,h,l;
- 222                            for(i=0;i<8;i++)
- 223                            {
- 224                            l=ID[i]&0x0f;
- 225                            h=ID[i]&0xf0;
- 226                            h>>4;
- 227                            if((h>=0x00)&&(h<=0x09))
- 228                                   GUI_sprintf_chartohex(20,200,(h+0x30),0xf800,0);
- 229                            else
- 230                               GUI_sprintf_chartohex(20,200,(h+0x37),0xf800,0);
- 231                            if((l>=0x00)&&(l<=0x09))
- 232                               GUI_sprintf_chartohex(60,200,(l+0x30),0xf800,0);
- 233                            else
- 234                                   GUI_sprintf_chartohex(60,200,(l+0x37),0xf800,0); 
- 235                            }
- 236          
- 237          
- 238          
- 239          }            
-C51 COMPILER V9.00   DS18B20                                                               06/18/2014 10:57:10 PAGE 5   
+ 178                  uint i;
+ 179                  ow_reset();
+ 180                  delay(100);       
+ 181                  write_byte(0x33);
+ 182                  delay(100);
+ 183             for(i=0;i<8;i++)
+ 184                {
+ 185                       sn[i]=readbyte();
+ 186                    } 
+ 187          
+ 188          }
+ 189          
+ 190          */
+ 191           void ReadROM(void)                                                          //读ROM
+ 192          {
+ 193   1              uint i;
+ 194   1              ow_reset();
+ 195   1              delay(100);       
+ 196   1              write_byte(0x33);
+ 197   1              delay(100);
+ 198   1              for(i=0;i<=7;i++)
+ 199   1              {
+ 200   2                  delay(100);
+ 201   2                      table[i]=read_byte();              
+ 202   2              }
+ 203   1      }
+ 204              
+ 205          
+ 206          
+ 207          
+ 208          /*       void display00(void)
+ 209          {
+ 210                    unsigned char i,h,l;
+ 211                            unsigned char c=1;
+ 212                            for(i=0;i<8;i++)
+ 213                            {
+ 214                            l=(sn[i]&0xf0)>>4;
+ 215                            h=sn[i]&0x0f;
+ 216          //                GUI_sprintf_chartohex(20,200,(table[l]),0xf800,0);
+ 217                            GUI_sprintf_char(20,c,(table[l]),0xf800,0);
+ 218                            GUI_sprintf_char(20,c,(table[l]),0xf800,0);
+ 219                            c++;c++;
+ 220                    }
+ 221          }
+ 222          /*       void display00(void)
+ 223          {
+ 224                    unsigned char i,h,l;
+ 225                            for(i=0;i<8;i++)
+ 226                            {
+ 227                            l=ID[i]&0x0f;
+ 228                            h=ID[i]&0xf0;
+ 229                            h>>4;
+ 230                            if((h>=0x00)&&(h<=0x09))
+ 231                                   GUI_sprintf_chartohex(20,200,(h+0x30),0xf800,0);
+ 232                            else
+ 233                               GUI_sprintf_chartohex(20,200,(h+0x37),0xf800,0);
+ 234                            if((l>=0x00)&&(l<=0x09))
+ 235                               GUI_sprintf_chartohex(60,200,(l+0x30),0xf800,0);
+ 236                            else
+ 237                                   GUI_sprintf_chartohex(60,200,(l+0x37),0xf800,0); 
+ 238                            }
+ 239          
+C51 COMPILER V9.00   DS18B20                                                               06/19/2014 21:06:34 PAGE 5   
 
  240          
  241          
- 242          /*   void display00(void)
- 243          {
- 244                  char date1,date2;
- 245          
- 246                  date1=((t&0xF0)>>4);     //取出字节高4位
- 247                  date2=t&0x0F;                //取出字节低4wei  
+ 242          }            
+ 243          
+ 244          
+ 245          /*   void display00(void)
+ 246          {
+ 247                  char date1,date2;
  248          
- 249                  if((date1>=0x00)&&(date1<=0x09))
- 250                                  GUI_sprintf_chartohex(20,200,(date1+0x30),0xf800,0);
- 251                  else                                                    
- 252                                  GUI_sprintf_chartohex(20,200,(date1+0x37),0xf800,0);
- 253                  if((date2>=0x00)&&(date2<=0x09))
- 254                                  GUI_sprintf_chartohex(20,200,(date2+0x30),0xf800,0);
- 255                  else 
- 256                                  GUI_sprintf_chartohex(20,200,(date2+0x37),0xf800,0);    
- 257          }
- 258          */     
- 259           void display00(void)                                                   //显示函数
- 260          {
- 261   1      /*        uint num,tableH,tableL,i;
- 262   1              uchar table0[16];
- 263   1              num=0;
- 264   1              while(num<16)
- 265   1              {
- 266   1                      for(i=0;i<8;i++)
- 267   1                      {       
- 268   1                              tableL=table[i]&0x0f;                                        //低四位
- 269   1                              tableH=table[i]>>4;
- 270   1                              tableH&=0x0f;                                                           //高四位
- 271   1                              if((tableH<=0x09)&&(tableH>=0x00))                                                
+ 249                  date1=((t&0xF0)>>4);     //取出字节高4位
+ 250                  date2=t&0x0F;                //取出字节低4wei  
+ 251          
+ 252                  if((date1>=0x00)&&(date1<=0x09))
+ 253                                  GUI_sprintf_chartohex(20,200,(date1+0x30),0xf800,0);
+ 254                  else                                                    
+ 255                                  GUI_sprintf_chartohex(20,200,(date1+0x37),0xf800,0);
+ 256                  if((date2>=0x00)&&(date2<=0x09))
+ 257                                  GUI_sprintf_chartohex(20,200,(date2+0x30),0xf800,0);
+ 258                  else 
+ 259                                  GUI_sprintf_chartohex(20,200,(date2+0x37),0xf800,0);    
+ 260          }
+ 261          */     
+ 262           void display00(void)                                                   //显示函数
+ 263          {
+ 264   1              uint num,tableH,tableL,i;
+ 265   1              uchar table0[16];
+ 266   1              num=0;
+ 267   1              while(num<16)
+ 268   1              {
+ 269   2                      for(i=0;i<8;i++)
+ 270   2                      {       
+ 271   3                              tableL=BUF[i]&0x0f;                                        //低四位
+ 272   3                              tableH=BUF[i]>>4;
+ 273   3                              tableH&=0x0f;                                                           //高四位
+ 274   3                              if((tableH<=0x09)&&(tableH>=0x00))                                                
              -                //小于等于9的话，显示数字，+0x30
- 272   1                              {
- 273   1                                      table0[num]=tableH+0x30;
- 274   1                              }
- 275   1                              else table0[num]=tableH+0x37;
- 276   1                              num++;
- 277   1                              if((tableL<=0x09)&&(tableL>=0x00))                                                
+ 275   3                              {
+ 276   4                                      table0[num]=tableH+0x30;
+ 277   4                              }
+ 278   3                              else table0[num]=tableH+0x37;
+ 279   3                              num++;
+ 280   3                              if((tableL<=0x09)&&(tableL>=0x00))                                                
              -               
- 278   1                              {
- 279   1                                      table0[num]=tableL+0x30;
- 280   1                              }
- 281   1                              else table0[num]=tableL+0x37;                       
- 282   1                              num++;
- 283   1                      }
- 284   1              }
- 285   1              //Write_com(0x80);
- 286   1      //        for(num=0;num<16;num++)
- 287   1      //        {                                                                                                                       */
- 288   1                      GUI_sprintf_char(30,220,(table[0]),0xf800,0);
- 289   1                                      //GUI_sprintf_ZM3216s(30,220,(table[0]),0xf800,0);
- 290   1                                      GUI_sprintf_char(40,220,(table[1]),0xf800,0);
- 291   1                                      GUI_sprintf_char(50,220,(table[2]),0xf800,0);
- 292   1                                      GUI_sprintf_char(60,220,(table[3]),0xf800,0);
- 293   1                                      GUI_sprintf_char(70,220,(table[4]),0xf800,0);
- 294   1                                      GUI_sprintf_char(80,220,(table[5]),0xf800,0);
- 295   1                                      GUI_sprintf_char(90,220,(table[6]),0xf800,0);
- 296   1                                      GUI_sprintf_char(100,220,(table[7]),0xf800,0);
- 297   1      /*                              GUI_sprintf_char(110,220,(table0[8]),0xf800,0);
- 298   1                                      GUI_sprintf_char(120,220,(table0[9]),0xf800,0);
- 299   1                                      GUI_sprintf_char(130,220,(table0[10]),0xf800,0);
-C51 COMPILER V9.00   DS18B20                                                               06/18/2014 10:57:10 PAGE 6   
+ 281   3                              {
+ 282   4                                      table0[num]=tableL+0x30;
+ 283   4                              }
+ 284   3                              else table0[num]=tableL+0x37;                       
+ 285   3                              num++;
+ 286   3                      }
+ 287   2              }
+ 288   1              //Write_com(0x80);
+ 289   1      //        for(num=0;num<16;num++)
+ 290   1      //        {                                                                                                                       
+ 291   1                      GUI_sprintf_char(30,220,(table0[0]),0xf800,0);
+ 292   1                                      //GUI_sprintf_ZM3216s(30,220,(table[0]),0xf800,0);
+ 293   1                                      GUI_sprintf_char(40,220,(table0[1]),0xf800,0);
+ 294   1                                      GUI_sprintf_char(50,220,(table0[2]),0xf800,0);
+ 295   1                                      GUI_sprintf_char(60,220,(table0[3]),0xf800,0);
+ 296   1                                      GUI_sprintf_char(70,220,(table0[4]),0xf800,0);
+ 297   1                                      GUI_sprintf_char(80,220,(table0[5]),0xf800,0);
+ 298   1                                      GUI_sprintf_char(90,220,(table0[6]),0xf800,0);
+ 299   1                                      GUI_sprintf_char(100,220,(table0[7]),0xf800,0);
+C51 COMPILER V9.00   DS18B20                                                               06/19/2014 21:06:34 PAGE 6   
 
- 300   1                                      GUI_sprintf_char(140,220,(table0[11]),0xf800,0);
- 301   1                                      GUI_sprintf_char(150,220,(table0[12]),0xf800,0);
- 302   1                                      GUI_sprintf_char(160,220,(table0[13]),0xf800,0);
- 303   1                                      GUI_sprintf_char(170,220,(table0[14]),0xf800,0);
- 304   1                                      GUI_sprintf_char(180,220,(table0[15]),0xf800,0);    */        
- 305   1      }
- 306          
- 307          /*void get_number()               //读取ds18b20的序列号
- 308          {
- 309            ow_reset();
- 310            write_byte(0x33);            //读ROM,读ds18b20的64位序列号
- 311            c=read_byte();              //连续读取8个字节，从低位到高位依次读取
- 312            d=read_byte();
- 313            e=read_byte();
- 314            f=read_byte();
- 315            g=read_byte();
- 316            h=read_byte();
- 317            i=read_byte();
- 318            l=read_byte();
- 319          }
- 320          
- 321          void disnumber() 
- 322          {
- 323            char num[16]{
- 324            tmp[(h&0xf0)>>4],
- 325            tmp[(h&0x0f)],
- 326            tmp[(g&0xf0)>>4],
- 327            tmp[(g&0x0f)],
- 328            tmp[(f&0xf0)>>4],
- 329            tmp[(f&0x0f)],
- 330            tmp[(e&0xf0)>>4],
- 331            tmp[(e&0x0f)],
- 332            tmp[(d&0xf0)>>4],
- 333            tmp[(d&0x0f)],
- 334            tmp[(c&0xf0)>>4],
- 335            tmp[(c&0x0f)],
- 336            tmp[(b&0xf0)>>4],
- 337            tmp[(b&0x0f)],
- 338            tmp[(a&0xf0)>>4],
- 339            tmp[(a&0x0f)]
- 340            }
- 341            GUI_sprintf_hzstr16s(100,200,"100S",0x07e0,0);
- 342          }
- 343          */
- 344          
- 345          
- 346          
- 347                  /*-----------------------------------*/
+ 300   1                                      GUI_sprintf_char(110,220,(table0[8]),0xf800,0);
+ 301   1                                      GUI_sprintf_char(120,220,(table0[9]),0xf800,0);
+ 302   1                                      GUI_sprintf_char(130,220,(table0[10]),0xf800,0);
+ 303   1                                      GUI_sprintf_char(140,220,(table0[11]),0xf800,0);
+ 304   1                                      GUI_sprintf_char(150,220,(table0[12]),0xf800,0);
+ 305   1                                      GUI_sprintf_char(160,220,(table0[13]),0xf800,0);
+ 306   1                                      GUI_sprintf_char(170,220,(table0[14]),0xf800,0);
+ 307   1                                      GUI_sprintf_char(180,220,(table0[15]),0xf800,0);            
+ 308   1      }
+ 309          
+ 310          /*void get_number()               //读取ds18b20的序列号
+ 311          {
+ 312            ow_reset();
+ 313            write_byte(0x33);            //读ROM,读ds18b20的64位序列号
+ 314            c=read_byte();              //连续读取8个字节，从低位到高位依次读取
+ 315            d=read_byte();
+ 316            e=read_byte();
+ 317            f=read_byte();
+ 318            g=read_byte();
+ 319            h=read_byte();
+ 320            i=read_byte();
+ 321            l=read_byte();
+ 322          }
+ 323          
+ 324          void disnumber() 
+ 325          {
+ 326            char num[16]{
+ 327            tmp[(h&0xf0)>>4],
+ 328            tmp[(h&0x0f)],
+ 329            tmp[(g&0xf0)>>4],
+ 330            tmp[(g&0x0f)],
+ 331            tmp[(f&0xf0)>>4],
+ 332            tmp[(f&0x0f)],
+ 333            tmp[(e&0xf0)>>4],
+ 334            tmp[(e&0x0f)],
+ 335            tmp[(d&0xf0)>>4],
+ 336            tmp[(d&0x0f)],
+ 337            tmp[(c&0xf0)>>4],
+ 338            tmp[(c&0x0f)],
+ 339            tmp[(b&0xf0)>>4],
+ 340            tmp[(b&0x0f)],
+ 341            tmp[(a&0xf0)>>4],
+ 342            tmp[(a&0x0f)]
+ 343            }
+ 344            GUI_sprintf_hzstr16s(100,200,"100S",0x07e0,0);
+ 345          }
+ 346          */
+ 347          
  348          
  349          
- 350          /*  a=read_byte();    //读温度值的第字节
- 351            b=read_byte();    //读温度值的高字节
- 352            t=b;
- 353           
- 354            t <<=8;       // 低位补0 即0x00
- 355            t =t |a;      // 两字节合成一个整型变量。
- 356            t=t>>4;       //高位补1
- 357          
- 358            m=b;
- 359            m<<=8;
- 360            m=m|a;
- 361            m=m&0x0f;
-C51 COMPILER V9.00   DS18B20                                                               06/18/2014 10:57:10 PAGE 7   
+ 350                  /*-----------------------------------*/
+ 351          
+ 352          
+ 353          /*  a=read_byte();    //读温度值的第字节
+ 354            b=read_byte();    //读温度值的高字节
+ 355            t=b;
+ 356           
+ 357            t <<=8;       // 低位补0 即0x00
+ 358            t =t |a;      // 两字节合成一个整型变量。
+ 359            t=t>>4;       //高位补1
+ 360          
+ 361            m=b;
+C51 COMPILER V9.00   DS18B20                                                               06/19/2014 21:06:34 PAGE 7   
 
- 362            
- 363            t=t*10+m;
- 364            return t;
- 365          */
- 366          //  }
- 367          
- 368          
- 369          
+ 362            m<<=8;
+ 363            m=m|a;
+ 364            m=m&0x0f;
+ 365            
+ 366            t=t*10+m;
+ 367            return t;
+ 368          */
+ 369          //  }
+ 370          
+ 371          
+ 372          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    657    ----
+   CODE SIZE        =   1076    ----
    CONSTANT SIZE    =   ----    ----
-   XDATA SIZE       =      2      11
+   XDATA SIZE       =      2      31
    PDATA SIZE       =   ----    ----
    DATA SIZE        =      8    ----
    IDATA SIZE       =   ----    ----
