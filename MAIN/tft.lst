@@ -1,0 +1,197 @@
+C51 COMPILER V9.00   TFT                                                                   06/18/2014 10:57:10 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE TFT
+OBJECT MODULE PLACED IN .\tft.obj
+COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE ..\tft\tft.C LARGE BROWSE INCDIR(..\delay;..\GUI;..\USER;..\ds18b20;..\tft)
+                    - DEBUG OBJECTEXTEND PRINT(.\tft.lst) OBJECT(.\tft.obj)
+
+line level    source
+
+   1          
+   2          
+   3          
+   4          #include "stc12.h"
+   5          #include "tft.h"
+   6          #include "delay.h"
+   7          #include "def.h"
+   8          
+   9          
+  10          
+  11          
+  12          
+  13           //TFT数据及命令函数
+  14          
+  15          #ifdef  Bus_16    //条件编译-16位数据模式   
+  16          void LCD_Writ_Bus(char VH,char VL)   //并行数据写入函数
+  17          {
+  18   1          LCD_DataPortH=VH;   
+  19   1              LCD_DataPortL=VL;               
+  20   1              LCD_WR=0;
+  21   1              LCD_WR=1; 
+  22   1      }
+  23          #else                   //条件编译-8位数据模式 
+              void LCD_Writ_Bus(char VH,char VL)   //并行数据写入函数
+              {       
+                  LCD_DataPortH=VH;   
+                      LCD_WR=0;
+                      LCD_WR=1;
+                      LCD_DataPortH=VL;               
+                      LCD_WR=0;
+                      LCD_WR=1;
+              }
+              #endif
+  34          
+  35          
+  36          
+  37          void Lcd_Write_Com(char VH,char VL)      //发送命令-8位参数
+  38          {       
+  39   1          LCD_RS=0;
+  40   1              LCD_Writ_Bus(VH,VL);
+  41   1      }
+  42          void Lcd_Write_Data(char VH,char VL) //发送数据-8位参数
+  43          {
+  44   1          LCD_RS=1;
+  45   1              LCD_Writ_Bus(VH,VL);
+  46   1      }
+  47          
+  48          void Lcd_Write_Data16(uint val)
+  49          {
+  50   1      Lcd_Write_Data(val>>8,val);
+  51   1      }
+  52          
+  53          void Lcd_Write_Com_Data(int com,int val)                   //发送数据命令
+  54          {
+C51 COMPILER V9.00   TFT                                                                   06/18/2014 10:57:10 PAGE 2   
+
+  55   1              Lcd_Write_Com(com>>8,com);
+  56   1          Lcd_Write_Data(val>>8,val);
+  57   1      }
+  58          
+  59          //设置坐标范围          与tft驱动IC有关
+  60          void Address_set(unsigned int x1,unsigned int y1,unsigned int x2,unsigned int y2)
+  61          {
+  62   1              Lcd_Write_Com(0x00,0x50);Lcd_Write_Data(x1>>8,x1);
+  63   1              Lcd_Write_Com(0x00,0x51);Lcd_Write_Data(x2>>8,x2);
+  64   1              Lcd_Write_Com(0x00,0x52);Lcd_Write_Data(y1>>8,y1);
+  65   1              Lcd_Write_Com(0x00,0x53);Lcd_Write_Data(y2>>8,y2);  
+  66   1              Lcd_Write_Com(0x00,0x20);Lcd_Write_Data(x1>>8,x1);        
+  67   1          Lcd_Write_Com(0x00,0x21);Lcd_Write_Data(y1>>8,y1); 
+  68   1          Lcd_Write_Com(0x00,0x22);                                                    
+  69   1      }
+  70          
+  71          
+  72          //===============================================================
+  73          //设定当前显示坐标
+  74          //入口参数: x,y为当前显示坐标。
+  75          //出口参数: 无
+  76          //说明：本函数实际上是LCD_setwindow函数的一个特例，显示窗口为最小，仅是一个像素点。
+  77          void Address_setxy(uchar x,uint y)
+  78          {
+  79   1              Address_set(x,y,x,y);   
+  80   1      }
+  81          
+  82          
+  83          
+  84          
+  85          //液晶初始化
+  86          void Lcd_Init(void)
+  87          {
+  88   1      
+  89   1          LCD_REST=1;
+  90   1          delayms(5); 
+  91   1              LCD_REST=0;
+  92   1              delayms(5);
+  93   1              LCD_REST=1;
+  94   1              LCD_CS=1;
+  95   1              LCD_RD=1;
+  96   1              LCD_WR=1;
+  97   1              delayms(5);
+  98   1      
+  99   1              LCD_CS =0;  //打开片选使能
+ 100   1      
+ 101   1          Lcd_Write_Com_Data(0x0001,0x0100);  //Driver Output Contral.        
+ 102   1          Lcd_Write_Com_Data(0x0002,0x0700);  //LCD Driver Waveform Contral.
+ 103   1              Lcd_Write_Com_Data(0x0003,0x1030);      //Entry Mode Set.
+ 104   1              Lcd_Write_Com_Data(0x0004,0x0000);      //Scalling Contral.                     
+ 105   1              Lcd_Write_Com_Data(0x0008,0x0202);      //Display Contral 2.(0x0207)            
+ 106   1              Lcd_Write_Com_Data(0x0009,0x0000);      //Display Contral 3.(0x0000)
+ 107   1              Lcd_Write_Com_Data(0x000A,0x0000);      //Frame Cycle Contal.(0x0000)
+ 108   1              Lcd_Write_Com_Data(0x000C,0x0000);      
+ 109   1              Lcd_Write_Com_Data(0x000D,0x0000);      //Frame Maker Position.
+ 110   1              Lcd_Write_Com_Data(0x000F,0x0000);      //Extern Display Interface Contral 2.
+ 111   1      
+ 112   1              Lcd_Write_Com_Data(0x0010,0x0000);      
+ 113   1              Lcd_Write_Com_Data(0x0011,0x0007);                                                              //Power Control 2.(0x0001)                                  //Power Control 3.(0x0138)
+ 114   1              Lcd_Write_Com_Data(0x0012,0x0000);      
+ 115   1              Lcd_Write_Com_Data(0x0013,0x0000);                                                              //Power Control 4.
+ 116   1              Lcd_Write_Com_Data(0x0007,0x0001);                                                              //Power Control 7.
+C51 COMPILER V9.00   TFT                                                                   06/18/2014 10:57:10 PAGE 3   
+
+ 117   1              delayms(50);
+ 118   1      
+ 119   1          Lcd_Write_Com_Data(0x0010,0x1690);
+ 120   1              Lcd_Write_Com_Data(0x0011,0x0227);
+ 121   1              delayms(50);
+ 122   1              Lcd_Write_Com_Data(0x0012,0x009D);
+ 123   1              delayms(50);
+ 124   1              Lcd_Write_Com_Data(0x0013,0x1900);      
+ 125   1              delayms(50);
+ 126   1              Lcd_Write_Com_Data(0x0029,0x0025);      
+ 127   1              Lcd_Write_Com_Data(0x002B,0x000D);
+ 128   1               delayms(50);
+ 129   1              Lcd_Write_Com_Data(0x0020,0x0000);      
+ 130   1              Lcd_Write_Com_Data(0x0021,0x0000);
+ 131   1              delayms(50);
+ 132   1              Lcd_Write_Com_Data(0x0030,0x0007);      
+ 133   1              Lcd_Write_Com_Data(0x0031,0x0303);      
+ 134   1              Lcd_Write_Com_Data(0x0032,0x0003);      
+ 135   1              Lcd_Write_Com_Data(0x0035,0x0206);      
+ 136   1              Lcd_Write_Com_Data(0x0036,0x0008);      
+ 137   1              Lcd_Write_Com_Data(0x0037,0x0406);      
+ 138   1              Lcd_Write_Com_Data(0x0038,0x0304);
+ 139   1              Lcd_Write_Com_Data(0x0039,0x0007);      
+ 140   1              Lcd_Write_Com_Data(0x003C,0x0601);      
+ 141   1              Lcd_Write_Com_Data(0x003D,0x0008);                      
+ 142   1                                      
+ 143   1      
+ 144   1              Lcd_Write_Com_Data(0x0050,0x0000);      
+ 145   1              Lcd_Write_Com_Data(0x0051,0x00EF);      
+ 146   1              Lcd_Write_Com_Data(0x0052,0x0000);      
+ 147   1              Lcd_Write_Com_Data(0x0053,0x013F);      
+ 148   1              Lcd_Write_Com_Data(0x0060,0xA700);      
+ 149   1              Lcd_Write_Com_Data(0x0061,0x0001);      
+ 150   1              Lcd_Write_Com_Data(0x006A,0x0000);      
+ 151   1      
+ 152   1      
+ 153   1              Lcd_Write_Com_Data(0x0080,0x0000);      //Display Position? Partial Display 1.
+ 154   1              Lcd_Write_Com_Data(0x0081,0x0000);      //RAM Address Start? Partial Display 1.
+ 155   1              Lcd_Write_Com_Data(0x0082,0x0000);      //RAM Address End-Partial Display 1.
+ 156   1              Lcd_Write_Com_Data(0x0083,0x0000);      //Displsy Position? Partial Display 2.
+ 157   1              Lcd_Write_Com_Data(0x0084,0x0000);      //RAM Address Start? Partial Display 2.
+ 158   1              Lcd_Write_Com_Data(0x0085,0x0000);      //RAM Address End? Partial Display 2.
+ 159   1      
+ 160   1              Lcd_Write_Com_Data(0x0090,0x0010);      
+ 161   1              Lcd_Write_Com_Data(0x0092,0x0600);      //Panel Interface Contral 2.(0x0000)
+ 162   1      
+ 163   1              Lcd_Write_Com_Data(0x0007,0x0133);      //(0x0173)
+ 164   1              Lcd_Write_Com(0x00,0x22);
+ 165   1              LCD_CS =1;  //关闭片选使能
+ 166   1      
+ 167   1      }         
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    684    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----       8
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+C51 COMPILER V9.00   TFT                                                                   06/18/2014 10:57:10 PAGE 4   
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,182 @@
+C51 COMPILER V7.06   R61505V                                                               12/06/2012 14:42:19 PAGE 1   
+
+
+C51 COMPILER V7.06, COMPILATION OF MODULE R61505V
+OBJECT MODULE PLACED IN .\R61505V.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE ..\R61505V\R61505V.C LARGE BROWSE INCDIR(..\delay;..\GUI;..\R61505V;..\USER
+                    -;..\ds18b20) DEBUG OBJECTEXTEND PRINT(.\R61505V.lst) OBJECT(.\R61505V.obj)
+
+stmt level    source
+
+   1          
+   2          
+   3          
+   4          #include "stc12.h"
+   5          #include "R61505V.h"
+   6          #include "delay.h"
+   7          #include "def.h"
+   8          
+   9          
+  10          
+  11          
+  12          
+  13           //TFT数据及命令函数
+  14          
+  15          #ifdef  Bus_16    //条件编译-16位数据模式   
+  16          void LCD_Writ_Bus(char VH,char VL)   //并行数据写入函数
+  17          {
+  18   1          LCD_DataPortH=VH;   
+  19   1              LCD_DataPortL=VL;               
+  20   1              LCD_WR=0;
+  21   1              LCD_WR=1; 
+  22   1      }
+  23          #else                   //条件编译-8位数据模式 
+              void LCD_Writ_Bus(char VH,char VL)   //并行数据写入函数
+              {       
+                  LCD_DataPortH=VH;   
+                      LCD_WR=0;
+                      LCD_WR=1;
+                      LCD_DataPortH=VL;               
+                      LCD_WR=0;
+                      LCD_WR=1;
+              }
+              #endif
+  34          
+  35          
+  36          
+  37          void Lcd_Write_Com(char VH,char VL)      //发送命令-8位参数
+  38          {       
+  39   1          LCD_RS=0;
+  40   1              LCD_Writ_Bus(VH,VL);
+  41   1      }
+  42          void Lcd_Write_Data(char VH,char VL) //发送数据-8位参数
+  43          {
+  44   1          LCD_RS=1;
+  45   1              LCD_Writ_Bus(VH,VL);
+  46   1      }
+  47          
+  48          void Lcd_Write_Data16(uint val)
+  49          {
+  50   1      Lcd_Write_Data(val>>8,val);
+  51   1      }
+  52          
+  53          void Lcd_Write_Com_Data(int com,int val)                   //发送数据命令
+  54          {
+C51 COMPILER V7.06   R61505V                                                               12/06/2012 14:42:19 PAGE 2   
+
+  55   1              Lcd_Write_Com(com>>8,com);
+  56   1          Lcd_Write_Data(val>>8,val);
+  57   1      }
+  58          
+  59          //设置坐标范围          与tft驱动IC有关
+  60          void Address_set(unsigned int x1,unsigned int y1,unsigned int x2,unsigned int y2)
+  61          {
+  62   1              Lcd_Write_Com(0x00,0x50);Lcd_Write_Data(x1>>8,x1);
+  63   1              Lcd_Write_Com(0x00,0x51);Lcd_Write_Data(x2>>8,x2);
+  64   1              Lcd_Write_Com(0x00,0x52);Lcd_Write_Data(y1>>8,y1);
+  65   1              Lcd_Write_Com(0x00,0x53);Lcd_Write_Data(y2>>8,y2);  
+  66   1              Lcd_Write_Com(0x00,0x20);Lcd_Write_Data(x1>>8,x1);        
+  67   1          Lcd_Write_Com(0x00,0x21);Lcd_Write_Data(y1>>8,y1); 
+  68   1          Lcd_Write_Com(0x00,0x22);                                                    
+  69   1      }
+  70          
+  71          
+  72          //===============================================================
+  73          //设定当前显示坐标
+  74          //入口参数: x,y为当前显示坐标。
+  75          //出口参数: 无
+  76          //说明：本函数实际上是LCD_setwindow函数的一个特例，显示窗口为最小，仅是一个像素点。
+  77          void Address_setxy(uchar x,uint y)
+  78          {
+  79   1              Address_set(x,y,x,y);   
+  80   1      }
+  81          
+  82          
+  83          
+  84          
+  85          //液晶初始化
+  86          void Lcd_Init(void)
+  87          {
+  88   1      
+  89   1          LCD_REST=1;
+  90   1          delayms(5); 
+  91   1              LCD_REST=0;
+  92   1              delayms(5);
+  93   1              LCD_REST=1;
+  94   1              LCD_CS=1;
+  95   1              LCD_RD=1;
+  96   1              LCD_WR=1;
+  97   1              delayms(5);
+  98   1      
+  99   1              LCD_CS =0;  //打开片选使能
+ 100   1      
+ 101   1       Lcd_Write_Com_Data(0x00,0x0000);               
+ 102   1          Lcd_Write_Com_Data(0x0000,0x0000);          
+ 103   1          Lcd_Write_Com_Data(0x0000,0x0000);  
+ 104   1              Lcd_Write_Com_Data(0x0000,0x0001);      
+ 105   1              Lcd_Write_Com_Data(0x00A4,0x0001);              
+ 106   1              delayms(10); 
+ 107   1              Lcd_Write_Com_Data(0x0060,0x2700);                      
+ 108   1              Lcd_Write_Com_Data(0x0008,0x0808);              
+ 109   1              Lcd_Write_Com_Data(0x0030,0x0214);
+ 110   1              Lcd_Write_Com_Data(0x0031,0x3715);
+ 111   1              Lcd_Write_Com_Data(0x0032,0x0604);
+ 112   1              Lcd_Write_Com_Data(0x0033,0x0E16);
+ 113   1              Lcd_Write_Com_Data(0x0034,0x2211);
+ 114   1              Lcd_Write_Com_Data(0x0035,0x1500);
+ 115   1              Lcd_Write_Com_Data(0x0036,0x8507);
+ 116   1              Lcd_Write_Com_Data(0x0037,0x1407);
+C51 COMPILER V7.06   R61505V                                                               12/06/2012 14:42:19 PAGE 3   
+
+ 117   1              Lcd_Write_Com_Data(0x0038,0x1403);
+ 118   1              Lcd_Write_Com_Data(0x0039,0x0020);
+ 119   1              Lcd_Write_Com_Data(0x0090,0x0015);
+ 120   1              Lcd_Write_Com_Data(0x0010,0x0410);
+ 121   1              Lcd_Write_Com_Data(0x0011,0x0237);
+ 122   1              Lcd_Write_Com_Data(0x0029,0x0046);
+ 123   1              Lcd_Write_Com_Data(0x002A,0x0046);
+ 124   1              Lcd_Write_Com_Data(0x0007,0x0000);
+ 125   1              Lcd_Write_Com_Data(0x0012,0x0189);
+ 126   1              Lcd_Write_Com_Data(0x0013,0x1100);
+ 127   1          delayms(150);
+ 128   1              Lcd_Write_Com_Data(0x0012,0x01B9);
+ 129   1              Lcd_Write_Com_Data(0x0001,0x0100);
+ 130   1              Lcd_Write_Com_Data(0x0002,0x0200);
+ 131   1              Lcd_Write_Com_Data(0x0003,0x1030);
+ 132   1              Lcd_Write_Com_Data(0x0009,0x0001);
+ 133   1              Lcd_Write_Com_Data(0x000A,0x0000);
+ 134   1              Lcd_Write_Com_Data(0x000D,0x0000);
+ 135   1              Lcd_Write_Com_Data(0x000E,0x0030);
+ 136   1              Lcd_Write_Com_Data(0x0050,0x0000);
+ 137   1              Lcd_Write_Com_Data(0x0051,0x00EF);
+ 138   1              Lcd_Write_Com_Data(0x0052,0x0000);
+ 139   1              Lcd_Write_Com_Data(0x0053,0x013F);
+ 140   1              Lcd_Write_Com_Data(0x0061,0x0001);
+ 141   1              Lcd_Write_Com_Data(0x006A,0x0000);
+ 142   1              Lcd_Write_Com_Data(0x0080,0x0000);
+ 143   1              Lcd_Write_Com_Data(0x0081,0x0000);
+ 144   1              Lcd_Write_Com_Data(0x0082,0x005F);
+ 145   1              Lcd_Write_Com_Data(0x0092,0x0100);
+ 146   1              Lcd_Write_Com_Data(0x0093,0x0701);
+ 147   1              delayms(80);
+ 148   1              Lcd_Write_Com_Data(0x0007,0x0100);
+ 149   1              Lcd_Write_Com_Data(0x0020,0x0000);
+ 150   1              Lcd_Write_Com_Data(0x0021,0x0000);
+ 151   1              Lcd_Write_Com(0x00,0x22);
+ 152   1              LCD_CS =1;  //关闭片选使能
+ 153   1      
+ 154   1      }         
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    621    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----      10
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
